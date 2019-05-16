@@ -100,7 +100,6 @@
         </plugins>
     </build>
     <scm>
-        <tag>wildfly-datasources-galleon-pack-1.0.Alpha1</tag>
         <connection>scm:git:${wildfly-extras.repo.scm.connection}</connection>
         <developerConnection>scm:git:${wildfly-extras.repo.scm.connection}</developerConnection>
         <url>${wildfly-extras.repo.scm.url}</url>
