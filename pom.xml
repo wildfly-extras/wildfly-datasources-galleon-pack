@@ -18,6 +18,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>35</version>
+    </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -38,6 +43,8 @@
         <version.org.wildfly.galleon-plugins>4.0.1.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>9.4.1211</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>5.1.44</version.mysql.mysql-connector-java>
+        <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
+        <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
     <dependencies>
         <dependency>
@@ -57,7 +64,22 @@
             <version>${version.org.postgresql.postgresql}</version>
         </dependency>
     </dependencies>
-
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>${maven.repository.url}</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
     <build>                
         <plugins>
             <plugin>
@@ -78,4 +100,10 @@
             </plugin>
         </plugins>
     </build>
+    <scm>
+        <tag>wildfly-datasources-galleon-pack-1.0.Alpha1</tag>
+        <connection>scm:git:${wildfly-extras.repo.scm.connection}</connection>
+        <developerConnection>scm:git:${wildfly-extras.repo.scm.connection}</developerConnection>
+        <url>${wildfly-extras.repo.scm.url}</url>
+    </scm>
 </project>
