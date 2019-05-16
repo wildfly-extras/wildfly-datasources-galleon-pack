@@ -1,2 +1,2 @@
 # wildfly-datasources-galleon-pack
-WildFly Feature Pack for DataSources
+Postgresql and Mysql drivers and datasources packaged as Galleon feature-pack
