@@ -38,7 +38,7 @@
         </license>
     </licenses>
     <properties>
-        <version.org.wildfly>17.0.0.Beta1</version.org.wildfly>
+        <version.org.wildfly>17.0.0.Final</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>4.0.1.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>9.4.1211</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>5.1.44</version.mysql.mysql-connector-java>
