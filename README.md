@@ -31,6 +31,11 @@ The datasource is named `PostgreSQLDS`. JDBC URL can be configured at server exe
 
 The JNDI name of the datasource is: `java:jboss/datasources/${env.MYSQL_DATASOURCE:MySQLDS}`
 
+`postgresql-default-datasource` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/postgresql-default-datasource/layer-spec.xml) sets the postgresql datasource as the 
+ee subsystem default datasource.
+
 `mysql-datasource` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/mysql-datasource/layer-spec.xml) creates a mysql datasource.
@@ -43,3 +48,8 @@ The datasource is named `MySQLDS`. JDBC URL can be configured at server executio
 * `MYSQL_USER`
 
 The JNDI name of the datasource is: `java:jboss/datasources/${env.POSTGRESQL_DATASOURCE:PostgreSQLDS}`
+
+`mysql-default-datasource` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/mysql-default-datasource/layer-spec.xml) sets the mysql datasource as the 
+ee subsystem default datasource.

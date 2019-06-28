@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mysql-default-datasource">
+    <dependencies>
+        <layer name="mysql-datasource"/>
+    </dependencies>
+    
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="java:jboss/datasources/${env.OPENSHIFT_MYSQL_DATASOURCE,env.MYSQL_DATASOURCE:MySQLDS}"/>
+    </feature>
+</layer-spec>
+
