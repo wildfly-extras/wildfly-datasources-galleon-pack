@@ -11,12 +11,12 @@ that makes use of the `postgresql-datasource` layer with the WildFly `cloud-prof
 `postgresql-driver` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/postgresql-driver/layer-spec.xml) installs postgresql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `postgresql`.
+The driver is named `postgresql`. In addition, the module `io.narayana.openshift-recovery` is provisioned, it can be needed in context where tx recovery is enabled and requires to store content in postgresql db. 
 
 `mysql-driver` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/mysql-driver/layer-spec.xml) install mysql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `mysql`.
+The driver is named `mysql`. In addition, the module `io.narayana.openshift-recovery` is provisioned, it can be needed in context where tx recovery is enabled and requires to store content in postgresql db. 
 
 `postgresql-datasource` layer
 ---------------------------------
