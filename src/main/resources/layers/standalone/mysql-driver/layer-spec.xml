@@ -10,9 +10,6 @@
     </feature>
     <packages>
         <package name="com.mysql.jdbc"/>
-        <!-- tx recovery -->
-        <package name="layers.conf"/>
-        <package name="io.narayana.openshift-recovery"/>
     </packages>
 </layer-spec>
 
