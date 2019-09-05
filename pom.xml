@@ -38,11 +38,10 @@
         </license>
     </licenses>
     <properties>
-        <version.org.wildfly>17.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.galleon-plugins>4.0.2.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly>18.0.0.Beta1</version.org.wildfly>
+        <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>9.4.1211</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>5.1.44</version.mysql.mysql-connector-java>
-        <version.io.narayana>1.1.2.Final</version.io.narayana>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
@@ -62,16 +61,6 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${version.org.postgresql.postgresql}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.narayana</groupId>
-            <artifactId>txn-recovery-marker-jdbc-common</artifactId>
-            <version>${version.io.narayana}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.narayana</groupId>
-            <artifactId>txn-recovery-marker-jdbc-hibernate5</artifactId>
-            <version>${version.io.narayana}</version>
         </dependency>
     </dependencies>
     <repositories>
