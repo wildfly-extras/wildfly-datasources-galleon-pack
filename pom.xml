@@ -26,9 +26,9 @@
     <artifactId>wildfly-datasources-galleon-pack</artifactId>
     <version>1.0.5.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>MySql and Postgresql drivers and datasources for WildFly</name>
+    <name>MySql and Postgresql drivers and datasources for EAP CD</name>
   
-    <description>MySql and Postgresql drivers and datasources for WildFly</description>
+    <description>MySql and Postgresql drivers and datasources for EAP CD</description>
 
     <licenses>
         <license>
@@ -38,7 +38,8 @@
         </license>
     </licenses>
     <properties>
-        <version.org.wildfly>18.0.0.Beta1</version.org.wildfly>
+        <!-- This version is a place holder and dependency has not been released --> 
+        <version.org.wildfly>7.3.0.CD18-redhat-SNAPSHOT</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>9.4.1211</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>5.1.44</version.mysql.mysql-connector-java>
@@ -47,7 +48,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <version>${version.org.wildfly}</version>
             <type>zip</type>
