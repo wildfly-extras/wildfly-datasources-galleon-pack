@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack</artifactId>
-    <version>1.0.5.CD.Alpha1</version>
+    <version>1.0.5.Alpha2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MySql and Postgresql drivers and datasources for EAP CD</name>
   
@@ -104,6 +104,6 @@
         <connection>scm:git:${wildfly-extras.repo.scm.connection}</connection>
         <developerConnection>scm:git:${wildfly-extras.repo.scm.connection}</developerConnection>
         <url>${wildfly-extras.repo.scm.url}</url>
-        <tag>wildfly-datasources-galleon-pack-1.0.5.CD.Alpha1</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
