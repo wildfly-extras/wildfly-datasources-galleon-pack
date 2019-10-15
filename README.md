@@ -29,7 +29,7 @@ The datasource is named `PostgreSQLDS`. JDBC URL can be configured at server exe
 * `POSTGRESQL_PASSWORD`
 * `POSTGRESQL_USER`
 
-The JNDI name of the datasource is: `java:jboss/datasources/${env.MYSQL_DATASOURCE:MySQLDS}`
+The JNDI name of the datasource is: `java:jboss/datasources/${env.POSTGRESQL_DATASOURCE:PostgreSQLDS}`
 
 `postgresql-default-datasource` layer
 ---------------------------------
@@ -47,7 +47,7 @@ The datasource is named `MySQLDS`. JDBC URL can be configured at server executio
 * `MYSQL_PASSWORD`
 * `MYSQL_USER`
 
-The JNDI name of the datasource is: `java:jboss/datasources/${env.POSTGRESQL_DATASOURCE:PostgreSQLDS}`
+The JNDI name of the datasource is: `java:jboss/datasources/${env.MYSQL_DATASOURCE:MySQLDS}`
 
 `mysql-default-datasource` layer
 ---------------------------------
