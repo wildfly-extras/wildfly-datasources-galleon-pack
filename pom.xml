@@ -40,8 +40,8 @@
     <properties>
         <version.org.wildfly>18.0.0.Final</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
-        <version.org.postgresql.postgresql>9.4.1211</version.org.postgresql.postgresql>
-        <version.mysql.mysql-connector-java>5.1.44</version.mysql.mysql-connector-java>
+        <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
+        <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
