@@ -39,7 +39,7 @@
     </licenses>
     <properties>
         <!-- This version is a place holder and dependency has not been released --> 
-        <version.org.wildfly>7.3.0.CD18-redhat-SNAPSHOT</version.org.wildfly>
+        <version.org.wildfly>7.3.0.CD18-redhat-00002</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
