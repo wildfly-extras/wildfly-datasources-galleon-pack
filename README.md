@@ -18,6 +18,11 @@ The driver is named `postgresql`.
 This [layer](src/main/resources/layers/standalone/mysql-driver/layer-spec.xml) install mysql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
 The driver is named `mysql`.
 
+`oracle-10-driver` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/oracle-10-driver/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
+The driver is named `oracle-10`.
+
 `postgresql-datasource` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/postgresql-datasource/layer-spec.xml) creates a postgresql datasource.
@@ -52,4 +57,24 @@ The JNDI name of the datasource is: `java:jboss/datasources/${env.MYSQL_DATASOUR
 `mysql-default-datasource` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/mysql-default-datasource/layer-spec.xml) sets the mysql datasource as the 
+ee subsystem default datasource.
+
+`oracle-datasource` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/oracle-datasource/layer-spec.xml) creates an oracle datasource.
+The datasource is named `OracleDS`. The datasource name may be changed at server execution with env variable:
+
+* `ORACLE_DATASOURCE`
+
+The JNDI name of the datasource is: `java:jboss/datasources/${env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}`
+
+JDBC connection properties can be configured at server execution time with the following env variables:
+
+* `ORACLE_URL`
+* `ORACLE_USER`
+* `ORACLE_PASSWORD`
+
+`oracle-default-datasource` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/oracle-default-datasource/layer-spec.xml) sets the oracle datasource as the 
 ee subsystem default datasource.

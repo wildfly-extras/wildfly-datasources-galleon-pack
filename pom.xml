@@ -42,6 +42,7 @@
         <version.org.wildfly>7.3.0.CD18-redhat-00002</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
+        <version.com.oracle.ojdbc10>19.3.0.0</version.com.oracle.ojdbc10>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
@@ -62,6 +63,11 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${version.org.postgresql.postgresql}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc10</artifactId>
+            <version>${version.com.oracle.ojdbc10}</version>
         </dependency>
     </dependencies>
     <repositories>
