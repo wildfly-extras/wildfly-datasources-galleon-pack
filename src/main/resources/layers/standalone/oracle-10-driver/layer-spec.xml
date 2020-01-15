@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="oracle-10-driver">
+    <feature spec="subsystem.datasources">
+        <feature spec="subsystem.datasources.jdbc-driver">
+            <param name="driver-name" value="oracle-10"/>
+            <param name="jdbc-driver" value="oracle-10"/>
+            <param name="driver-xa-datasource-class-name" value="oracle.jdbc.xa.client.OracleXADataSource"/>
+            <param name="driver-module-name" value="com.oracle.ojdbc10"/>
+        </feature>
+    </feature>
+    <packages>
+        <package name="com.oracle.ojdbc10"/>
+    </packages>
+</layer-spec>
+

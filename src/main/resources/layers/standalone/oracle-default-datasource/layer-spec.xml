@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="oracle-default-datasource">
+    <dependencies>
+        <layer name="oracle-datasource"/>
+    </dependencies>
+
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="java:jboss/datasources/${env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}"/>
+    </feature>
+</layer-spec>
+
