@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="oracle-datasource">
     <dependencies>
-        <layer name="oracle-10-driver"/>
+        <layer name="oracle-driver"/>
     </dependencies>
 
     <feature spec="subsystem.datasources.data-source">
@@ -12,7 +12,7 @@
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="java:jboss/datasources/${env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}"/>
         <param name="connection-url" value="${env.ORACLE_URL, env.OPENSHIFT_ORACLE_URL}"/>
-        <param name="driver-name" value="oracle-10"/>
+        <param name="driver-name" value="oracle"/>
         <param name="user-name" value="${env.ORACLE_USER, env.OPENSHIFT_ORACLE_DB_USERNAME}"/>
         <param name="password" value="${env.ORACLE_PASSWORD, env.OPENSHIFT_ORACLE_DB_PASSWORD}"/>
         <param name="validate-on-match" value="true"/>
