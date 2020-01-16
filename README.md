@@ -18,10 +18,10 @@ The driver is named `postgresql`.
 This [layer](src/main/resources/layers/standalone/mysql-driver/layer-spec.xml) install mysql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
 The driver is named `mysql`.
 
-`oracle-10-driver` layer
+`oracle-driver` layer
 ---------------------------------
-This [layer](src/main/resources/layers/standalone/oracle-10-driver/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `oracle-10`.
+This [layer](src/main/resources/layers/standalone/oracle-driver/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
+The driver is named `oracle`.
 
 `postgresql-datasource` layer
 ---------------------------------
