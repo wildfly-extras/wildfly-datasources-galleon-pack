@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack</artifactId>
-    <version>1.0.7.Final-SNAPSHOT</version>
+    <version>1.0.7.CD.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MySql and Postgresql drivers and datasources for WildFly</name>
   
@@ -38,8 +38,8 @@
         </license>
     </licenses>
     <properties>
-        <version.org.wildfly>18.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
+        <version.org.jboss.eap.cd>7.4.0.CD19-redhat-SNAPSHOT</version.org.jboss.eap.cd>
+        <version.org.wildfly.galleon-plugins>4.2.4.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
@@ -48,9 +48,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
-            <version>${version.org.wildfly}</version>
+            <version>${version.org.jboss.eap.cd}</version>
             <type>zip</type>
         </dependency>
         <dependency>
