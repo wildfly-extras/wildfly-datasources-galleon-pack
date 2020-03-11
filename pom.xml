@@ -48,7 +48,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.jboss.eap</groupId>
+            <groupId>org.jboss.eap.cd</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <version>${version.org.jboss.eap.cd}</version>
             <type>zip</type>
