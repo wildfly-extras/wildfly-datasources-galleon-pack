@@ -23,6 +23,17 @@ The driver is named `mysql`.
 This [layer](src/main/resources/layers/standalone/oracle-driver/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
 The driver is named `oracle`.
 
+`oracle-driver-full` layer
+---------------------------------
+This [layer](src/main/resources/layers/standalone/oracle-driver-full/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server. The driver is named `oracle-driver-full`. This driver has additional dependencies to support extended features. This result in a larger installation. If do not need this features, the `oracle-driver` layer is sufficient for oracle connectivity.  
+
+* `ojdbc8.jar`: type 4 driver compiled with JDK8, certified with JDK 10 and 11
+* `ucp.jar`: the Java (Universal Connection Pool) library for use with either ojdbc8.jar or ojdbc10.jar
+* `orai18n.jar`: Java classes for NLS or Internalization support
+* `ons.jar`: supports automatic registration to server-side Oracle Notification Services (ONS) daemon
+* `simplefan.jar`: supports Java APIs for subscribing to Fast Application Notification (FAN) events; required when not using the Oracle Java connection pool (ucp); requires ons.jar
+* `xdb.jar and xmlparserv2.jar`: to support standard java.sql.SQLXML interface with XML data types
+
 `postgresql-datasource` layer
 ---------------------------------
 This [layer](src/main/resources/layers/standalone/postgresql-datasource/layer-spec.xml) creates a postgresql datasource.

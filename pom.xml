@@ -63,11 +63,54 @@
             <artifactId>postgresql</artifactId>
             <version>${version.org.postgresql.postgresql}</version>
         </dependency>
-        <dependency>
-            <groupId>com.oracle.ojdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>${version.com.oracle.ojdbc8}</version>
-        </dependency>
+         
+   		<!-- Start: JDBC: Oracle - 8 -->
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+        <!-- Additional oracle dependencies for oracle-driver-full -->
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ucp</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>orai18n</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>xdb</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>xmlparserv2</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>simplefan</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ons</artifactId>
+			<version>${version.com.oracle.ojdbc8}</version>
+		</dependency>
+		<!-- End: JDBC: Oracle - 8 -->
+        
+        
+        
     </dependencies>
     <repositories>
         <repository>
