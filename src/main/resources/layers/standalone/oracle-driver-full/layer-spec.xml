@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="oracle-driver-full">
+    <feature spec="subsystem.datasources">
+        <feature spec="subsystem.datasources.jdbc-driver">
+            <param name="driver-name" value="oracle8-full"/>
+            <param name="jdbc-driver" value="oracle8-full"/>
+            <param name="driver-xa-datasource-class-name" value="oracle.jdbc.xa.client.OracleXADataSource"/>
+            <param name="driver-module-name" value="com.oracle.ojdbc8-full"/>
+         </feature>
+    </feature>
+    <packages>
+        <package name="com.oracle.ojdbc8-full"/>
+    </packages>
+</layer-spec>
+

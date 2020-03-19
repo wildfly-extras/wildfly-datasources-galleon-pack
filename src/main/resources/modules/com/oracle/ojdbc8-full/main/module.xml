@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="com.oracle.ojdbc8-full" xmlns="urn:jboss:module:1.8">
+    <resources>
+        <!-- Oracle JDBC Thin driver -->
+        <artifact name="${com.oracle.ojdbc:ojdbc8}" />
+
+        <!-- Universal Connection Pool classes for use with JDK 8 - for performance, 
+            scalability, high availability, sharded and multitenant databases. -->
+        <artifact name="${com.oracle.ojdbc:ucp}" />
+
+        <!-- Classes to support standard JDBC 4.x java.sql.SQLXML interface -->
+        <artifact name="${com.oracle.ojdbc:xdb}" />
+
+        <!-- Classes to support standard JDBC 4.x java.sql.SQLXML interface -->
+        <artifact name="${com.oracle.ojdbc:xmlparserv2}" />
+
+        <!-- Classes for NLS support -->
+        <artifact name="${com.oracle.ojdbc:orai18n}" />
+
+        <!-- for use by the pure Java client-side Oracle Notification Services (ONS) 
+            daemon -->
+        <artifact name="${com.oracle.ojdbc:ons}" />
+
+        <!-- Java APIs for subscribing to RAC events via ONS; simplefan policy and 
+            javadoc -->
+        <artifact name="${com.oracle.ojdbc:simplefan}" />
+    </resources>
+
+    <dependencies>
+        <module name="javax.api" />
+        <module name="javax.transaction.api" />
+    </dependencies>
+</module>
+
