@@ -38,9 +38,8 @@
         </license>
     </licenses>
     <properties>
-        <!-- This version is a place holder and dependency has not been released --> 
-        <version.org.wildfly>7.3.0.CD18-redhat-00002</version.org.wildfly>
-        <version.org.wildfly.galleon-plugins>4.0.3.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly>7.3.0.GA-redhat-00004</version.org.wildfly>
+        <version.org.wildfly.galleon-plugins>4.1.2.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
@@ -64,22 +63,18 @@
             <version>${version.org.postgresql.postgresql}</version>
         </dependency>
     </dependencies>
-    <repositories>
+     <repositories>
         <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>${maven.repository.url}</url>
-            <layout>default</layout>
+          <id>jboss-public-repository</id>
+          <name>JBoss Public Maven Repository Group</name>
+          <url>https://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
-    </repositories>
+        <repository>
+          <id>Red Hat GA</id>
+          <name>Red Hat GA</name>
+          <url>https://maven.repository.redhat.com/ga/</url>
+        </repository>
+      </repositories>
     <build>                
         <plugins>
             <plugin>
