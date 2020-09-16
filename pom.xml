@@ -39,7 +39,7 @@
     </licenses>
     <properties>
         <version.org.wildfly>7.3.0.GA-redhat-00004</version.org.wildfly>
-        <version.org.wildfly.galleon-plugins>4.1.2.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>4.2.8.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
         <version.com.oracle.ojdbc10>19.3.0.0</version.com.oracle.ojdbc10>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
@@ -95,6 +95,7 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
+                            <translate-to-fpl>true</translate-to-fpl>
                         </configuration>
                     </execution>
                 </executions>
