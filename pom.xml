@@ -39,7 +39,7 @@
     </licenses>
     <properties>
         <version.org.wildfly>20.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.galleon-plugins>4.2.4.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>4.2.8.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.8</version.org.postgresql.postgresql>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.mysql.mysql-connector-java>8.0.18</version.mysql.mysql-connector-java>
@@ -99,6 +99,7 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
+                            <translate-to-fpl>true</translate-to-fpl>
                         </configuration>
                     </execution>
                 </executions>
