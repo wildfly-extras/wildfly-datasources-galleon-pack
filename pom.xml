@@ -81,7 +81,7 @@
             </snapshots>
             <id>jboss-public-repository-group</id>
             <name>JBoss Public Repository Group</name>
-            <url>${maven.repository.url}</url>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
             <layout>default</layout>
         </repository>
     </repositories>
