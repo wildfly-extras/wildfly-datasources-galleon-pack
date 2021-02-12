@@ -38,7 +38,7 @@
         </license>
     </licenses>
     <properties>
-        <version.org.wildfly>22.0.0.Final</version.org.wildfly>
+        <version.org.wildfly>22.0.1.Final</version.org.wildfly>
         <version.org.wildfly.galleon-plugins>5.0.1.Final</version.org.wildfly.galleon-plugins>
         <version.org.postgresql.postgresql>42.2.18</version.org.postgresql.postgresql>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
