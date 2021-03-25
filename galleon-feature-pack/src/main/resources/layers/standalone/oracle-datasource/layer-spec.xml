@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="oracle-datasource">
+    <dependencies>
+        <layer name="oracle-driver"/>
+    </dependencies>
+
+    <feature spec="subsystem.datasources.data-source">
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="OracleDS"/>
+        <param name="enabled" value="${org.wildfly.datasources.oracle.enabled,env.ORACLE_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.oracle.exception-sorter-class-name,env.ORACLE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.oracle.jndi-name,env.ORACLE_JNDI:java:jboss/datasources/${org.wildfly.datasources.oracle.datasource,env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.oracle.jta,env.ORACLE_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.oracle.max-pool-size,env.ORACLE_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.oracle.min-pool-size,env.ORACLE_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.oracle.connection-url,env.ORACLE_URL,env.OPENSHIFT_ORACLE_URL}"/>
+        <param name="driver-name" value="oracle"/>
+        <param name="user-name" value="${org.wildfly.datasources.oracle.user-name,env.ORACLE_USER,env.OPENSHIFT_ORACLE_DB_USERNAME}"/>
+        <param name="password" value="${org.wildfly.datasources.oracle.password,env.ORACLE_PASSWORD,env.OPENSHIFT_ORACLE_DB_PASSWORD}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.oracle.validate-on-match,env.ORACLE_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.oracle.background-validation,env.ORACLE_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.oracle.background-validation-millis,env.ORACLE_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.oracle.flush-strategy,env.ORACLE_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.oracle.stale-connection-checker-class-name,env.ORACLE_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.oracle.valid-connection-checker-class-name,env.ORACLE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.oracle.transaction-isolation,env.ORACLE_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+

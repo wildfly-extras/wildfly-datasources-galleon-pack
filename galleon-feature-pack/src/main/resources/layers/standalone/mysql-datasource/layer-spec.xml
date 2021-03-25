@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mysql-datasource">
+    <dependencies>
+        <layer name="mysql-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.data-source">
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="MySQLDS"/>
+        <param name="enabled" value="${org.wildfly.datasources.mysql.enabled, env.MYSQL_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.mysql.exception-sorter-class-name, env.MYSQL_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.mysql.jndi-name,env.MYSQL_JNDI:java:jboss/datasources/${org.wildfly.datasources.mysql.datasource,env.OPENSHIFT_MYSQL_DATASOURCE,env.MYSQL_DATASOURCE:MySQLDS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.mysql.jta,env.MYSQL_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.mysql.max-pool-size,env.MYSQL_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.mysql.min-pool-size,env.MYSQL_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.mysql.connection-url,env.MYSQL_URL:jdbc:mysql://${org.wildfly.datasources.mysql.host,env.MYSQL_SERVICE_HOST,env.OPENSHIFT_MYSQL_DB_HOST,env.MYSQL_HOST:localhost}:${org.wildfly.datasources.mysql.port,env.MYSQL_SERVICE_PORT,env.OPENSHIFT_MYSQL_DB_PORT,env.MYSQL_PORT:3306}/${org.wildfly.datasources.mysql.database,env.MYSQL_DATABASE,env.OPENSHIFT_MYSQL_DB_NAME}}"/>
+        <param name="driver-name" value="mysql"/>
+        <param name="user-name" value="${org.wildfly.datasources.mysql.user-name,env.MYSQL_USER,env.OPENSHIFT_MYSQL_DB_USERNAME}"/>
+        <param name="password" value="${org.wildfly.datasources.mysql.password,env.MYSQL_PASSWORD,env.OPENSHIFT_MYSQL_DB_PASSWORD}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.mysql.validate-on-match,env.MYSQL_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.mysql.background-validation,env.MYSQL_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.mysql.background-validation-millis,env.MYSQL_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.mysql.flush-strategy,env.MYSQL_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.mysql.stale-connection-checker-class-name,env.MYSQL_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.mysql.valid-connection-checker-class-name,env.MYSQL_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.mysql.transaction-isolation,env.MYSQL_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+

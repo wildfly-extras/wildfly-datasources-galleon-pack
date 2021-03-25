@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="com.microsoft.sqlserver" xmlns="urn:jboss:module:1.8">
+    <resources>
+        <artifact name="${com.microsoft.sqlserver:mssql-jdbc}"/>
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+

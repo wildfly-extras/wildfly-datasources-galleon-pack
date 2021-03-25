@@ -1,80 +1,20 @@
-Postgresql and Mysql drivers and datasources packaged as Galleon feature-pack
-==============================================================================
+Galleon Feature Pack for integrating datasources into WildFly 
+====================================
 
-NB: You must ensure that the WildFly configuration that you are composing with the following 
-layers contains the dependencies needed by the layers to properly operate. As an example, the `jpa` or `cloud-profile` WildFly layers 
-contain all the needed dependencies.
+This feature pack for WildFly provides JDBC drivers and datasources for various databases.
 
-You can check this [Galleon maven project](https://github.com/wildfly/wildfly-s2i/wildfly-modules/jboss/container/wildfly/galleon/artifacts/opt/jboss/container/wildfly/galleon/definitions/cloud-profile-postgresql) 
-that makes use of the `postgresql-datasource` layer with the WildFly `cloud-profile` to provision a custom WildFly server.
+The versions of the JDBC drivers can be retrieved from the [pom.xml file](pom.xml) of the feature-pack version you are using.
 
-`postgresql-driver` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/postgresql-driver/layer-spec.xml) installs postgresql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `postgresql`.
+Datasources
+=======
 
-`mysql-driver` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/mysql-driver/layer-spec.xml) install mysql driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `mysql`.
+* [MariaDB](doc/mariadb/README.md)
 
-`oracle-driver` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/oracle-driver/layer-spec.xml) install oracle driver (for current version check in [pom.xml](pom.xml)) as JBOSS modules inside a WildFly server.
-The driver is named `oracle`.
+* [Microsoft SQL Server](doc/mssqlserver/README.md)
 
-`postgresql-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/postgresql-datasource/layer-spec.xml) creates a postgresql datasource.
-The datasource is named `PostgreSQLDS`. JDBC URL can be configured at server execution time with the following env Variables:
+* [MySQL](doc/mysql/README.md)
 
-* `POSTGRESQL_DATABASE`
-* `POSTGRESQL_SERVICE_PORT`
-* `POSTGRESQL_SERVICE_HOST`
-* `POSTGRESQL_PASSWORD`
-* `POSTGRESQL_USER`
+* [Oracle](doc/oracle/README.md)
 
-The JNDI name of the datasource is: `java:jboss/datasources/${env.POSTGRESQL_DATASOURCE:PostgreSQLDS}`
+* [PostgreSQL](doc/postgresql/README.md)
 
-`postgresql-default-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/postgresql-default-datasource/layer-spec.xml) sets the postgresql datasource as the
-ee subsystem default datasource.
-
-`mysql-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/mysql-datasource/layer-spec.xml) creates a mysql datasource.
-The datasource is named `MySQLDS`. JDBC URL can be configured at server execution time with the following env Variables:
-
-* `MYSQL_DATABASE`
-* `MYSQL_SERVICE_PORT`
-* `MYSQL_SERVICE_HOST`
-* `MYSQL_PASSWORD`
-* `MYSQL_USER`
-
-The JNDI name of the datasource is: `java:jboss/datasources/${env.MYSQL_DATASOURCE:MySQLDS}`
-
-`mysql-default-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/mysql-default-datasource/layer-spec.xml) sets the mysql datasource as the
-ee subsystem default datasource.
-
-`oracle-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/oracle-datasource/layer-spec.xml) creates an oracle datasource.
-The datasource is named `OracleDS`. The datasource name may be changed at server execution with env variable:
-
-* `ORACLE_DATASOURCE`
-
-The JNDI name of the datasource is: `java:jboss/datasources/${env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}`
-
-JDBC connection properties can be configured at server execution time with the following env variables:
-
-* `ORACLE_URL`
-* `ORACLE_USER`
-* `ORACLE_PASSWORD`
-
-`oracle-default-datasource` layer
----------------------------------
-This [layer](src/main/resources/layers/standalone/oracle-default-datasource/layer-spec.xml) sets the oracle datasource as the
-ee subsystem default datasource.
