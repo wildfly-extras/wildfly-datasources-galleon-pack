@@ -4,6 +4,9 @@
         <artifact name="${org.postgresql:postgresql}"/>
     </resources>
     <dependencies>
+        <module name="javaee.api"/>
+        <module name="sun.jdk"/>
+        <module name="ibm.jdk"/>
         <module name="javax.api"/>
         <module name="javax.transaction.api"/>
     </dependencies>
