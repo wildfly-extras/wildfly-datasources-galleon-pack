@@ -1,0 +1,21 @@
+repo:
+  - ./*
+test:
+  - testsuite/**/*
+microsoft:
+  - "**/mssqlserver*/**/*"
+  - "**/microsoft/**/*"
+oracle:
+  - "**/oracle/**/*"
+  - "**/oracle-*/**/*"
+postgresql:
+  - "**/postgresql/**/*"
+  - "**/postgresql-*/**/*"
+mariadb:
+  - "**/mariadb/**/*"
+  - "**/mariadb-*/**/*"
+mysql:
+  - "**/mysql/**/*"
+  - "**/mysql-*/**/*"
+documentation:
+  - doc/**/*
