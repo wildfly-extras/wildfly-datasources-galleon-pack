@@ -8,7 +8,7 @@
         <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
         <param name="data-source" value="OracleDS"/>
         <param name="enabled" value="${org.wildfly.datasources.oracle.enabled,env.ORACLE_ENABLED:true}"/>
-        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.oracle.exception-sorter-class-name,env.ORACLE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.oracle.exception-sorter-class-name,env.ORACLE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter}"/>
         <param name="jndi-name" value="${org.wildfly.datasources.oracle.jndi-name,env.ORACLE_JNDI:java:jboss/datasources/${org.wildfly.datasources.oracle.datasource,env.ORACLE_DATASOURCE,env.OPENSHIFT_ORACLE_DATASOURCE:OracleDS}}"/>
         <param name="jta" value="${org.wildfly.datasources.oracle.jta,env.ORACLE_JTA:true}"/>
         <param name="max-pool-size" value="${org.wildfly.datasources.oracle.max-pool-size,env.ORACLE_MAX_POOL_SIZE:20}"/>
@@ -23,7 +23,7 @@
         <param name="flush-strategy" value="${org.wildfly.datasources.oracle.flush-strategy,env.ORACLE_FLUSH_STRATEGY:FailingConnectionOnly}"/>
         <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
         <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.oracle.stale-connection-checker-class-name,env.ORACLE_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
-        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.oracle.valid-connection-checker-class-name,env.ORACLE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker}"/>
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.oracle.valid-connection-checker-class-name,env.ORACLE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker}"/>
         <param name="transaction-isolation" value="${org.wildfly.datasources.oracle.transaction-isolation,env.ORACLE_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
     </feature>
 </layer-spec>

@@ -111,8 +111,6 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("transaction-isolation", "TRANSACTION_READ_COMMITTED");
         COMMON_DEFAULT_VALUES.put("validate-on-match", "true");
         COMMON_DEFAULT_VALUES.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker");
-        COMMON_DEFAULT_VALUES.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
-        COMMON_DEFAULT_VALUES.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
         COMMON_DEFAULT_VALUES.put("flush-strategy","FailingConnectionOnly");
 
         Map<String, String> oracle = new HashMap<>();
@@ -122,6 +120,8 @@ public class SimpleTestCase {
         oracle.put("password", "${org.wildfly.datasources.oracle.password,env.ORACLE_PASSWORD,env.OPENSHIFT_ORACLE_DB_PASSWORD}");
         oracle.put("user-name", "${org.wildfly.datasources.oracle.user-name,env.ORACLE_USER,env.OPENSHIFT_ORACLE_DB_USERNAME}");
         oracle.put("driver-name", ORACLE_DRIVER);
+        oracle.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter");
+        oracle.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker");
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
@@ -130,6 +130,8 @@ public class SimpleTestCase {
         postgresql.put("password", "${org.wildfly.datasources.postgresql.password,env.POSTGRESQL_PASSWORD,env.OPENSHIFT_POSTGRESQL_DB_PASSWORD}");
         postgresql.put("user-name", "${org.wildfly.datasources.postgresql.user-name,env.POSTGRESQL_USER,env.OPENSHIFT_POSTGRESQL_DB_USERNAME}");
         postgresql.put("driver-name", POSTGRESQL_DRIVER);
+        postgresql.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter");
+        postgresql.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker");
 
         Map<String, String> mssqlserver = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MSSQLSERVER_DS, mssqlserver);
@@ -138,7 +140,9 @@ public class SimpleTestCase {
         mssqlserver.put("password", "${org.wildfly.datasources.mssqlserver.password,env.MSSQLSERVER_PASSWORD}");
         mssqlserver.put("user-name", "${org.wildfly.datasources.mssqlserver.user-name,env.MSSQLSERVER_USER}");
         mssqlserver.put("driver-name", MSSQLSERVER_DRIVER);
-        
+        mssqlserver.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter");
+        mssqlserver.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker");
+
         Map<String, String> mysql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MYSQL_DS, mysql);
         mysql.put("connection-url", "jdbc:mysql://localhost:3306/${org.wildfly.datasources.mysql.database,env.MYSQL_DATABASE,env.OPENSHIFT_MYSQL_DB_NAME}");
@@ -146,6 +150,8 @@ public class SimpleTestCase {
         mysql.put("password", "${org.wildfly.datasources.mysql.password,env.MYSQL_PASSWORD,env.OPENSHIFT_MYSQL_DB_PASSWORD}");
         mysql.put("user-name", "${org.wildfly.datasources.mysql.user-name,env.MYSQL_USER,env.OPENSHIFT_MYSQL_DB_USERNAME}");
         mysql.put("driver-name", MYSQL_DRIVER);
+        mysql.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter");
+        mysql.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker");
         
         Map<String, String> mariadb = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MARIADB_DS, mariadb);
@@ -154,6 +160,8 @@ public class SimpleTestCase {
         mariadb.put("password", "${org.wildfly.datasources.mariadb.password,env.MARIADB_PASSWORD}");
         mariadb.put("user-name", "${org.wildfly.datasources.mariadb.user-name,env.MARIADB_USER}");
         mariadb.put("driver-name", MARIADB_DRIVER);
+        mariadb.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter");
+        mariadb.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker");
 
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".enabled", "false");
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".exception-sorter-class-name", "foo");

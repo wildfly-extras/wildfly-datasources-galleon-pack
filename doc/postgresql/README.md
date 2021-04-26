@@ -58,7 +58,7 @@ Optional configuration
 * `POSTGRESQL_CONNECTION_CHECKER`
 
   * Description: Specifies a connection checker class that is used to validate connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker`
   * System Property: `org.wildfly.datasources.postgresql.valid-connection-checker-class-name`
 
 * `POSTGRESQL_DATASOURCE` or `OPENSHIFT_POSTGRESQL_DATASOURCE`
@@ -76,7 +76,7 @@ Optional configuration
 * `POSTGRESQL_EXCEPTION_SORTER`
 
   * Description: Specifies the exception sorter class that is used to properly detect and clean up after fatal database connection exceptions. Valid value: `org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter`
   * System Property: `org.wildfly.datasources.postgresql.exception-sorter-class-name`
 
 * `POSTGRESQL_FLUSH_STRATEGY`

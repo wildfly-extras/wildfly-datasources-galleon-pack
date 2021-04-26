@@ -51,7 +51,7 @@ Optional configuration
 * `ORACLE_CONNECTION_CHECKER`
 
   * Description: Specifies a connection checker class that is used to validate connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker`
   * System Property: `org.wildfly.datasources.oracle.valid-connection-checker-class-name`
 
 * `ORACLE_DATASOURCE` (or `OPENSHIFT_ORACLE_DATASOURCE`)
@@ -69,7 +69,7 @@ Optional configuration
 * `ORACLE_EXCEPTION_SORTER`
 
   * Description: Specifies the exception sorter class that is used to properly detect and clean up after fatal database connection exceptions. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter`
   * System Property: `org.wildfly.datasources.oracle.exception-sorter-class-name`
 
 * `ORACLE_FLUSH_STRATEGY`
@@ -104,7 +104,7 @@ Optional configuration
 
 * `ORACLE_STALE_CONNECTION_CHECKER`
 
-  * Description: Specifies a connection checker class that is used to check stale connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker`
+  * Description: Specifies a connection checker class that is used to check stale connections. Valid values: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker`or `org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker`
   * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker`
   * System Property: `org.wildfly.datasources.oracle.stale-connection-checker-class-name`
 

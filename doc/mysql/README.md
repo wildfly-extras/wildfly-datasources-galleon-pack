@@ -58,7 +58,7 @@ Optional configuration
 * `MYSQL_CONNECTION_CHECKER`
 
   * Description: Specifies a connection checker class that is used to validate connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker`
   * System Property: `org.wildfly.datasources.mysql.valid-connection-checker-class-name`
 
 * `MYSQL_DATASOURCE` (or `OPENSHIFT_MYSQL_DATASOURCE`)
@@ -76,7 +76,7 @@ Optional configuration
 * `MYSQL_EXCEPTION_SORTER`
 
   * Description: Specifies the exception sorter class that is used to properly detect and clean up after fatal database connection exceptions. Valid value: `org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter`
   * System Property: `org.wildfly.datasources.mysql.exception-sorter-class-name`
 
 * `MYSQL_FLUSH_STRATEGY`

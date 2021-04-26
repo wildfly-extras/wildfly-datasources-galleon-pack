@@ -58,7 +58,7 @@ Optional configuration
 * `MSSQLSERVER_CONNECTION_CHECKER`
 
   * Description: Specifies a connection checker class that is used to validate connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker`
   * System Property: `org.wildfly.datasources.mssqlserver.valid-connection-checker-class-name`
 
 * `MSSQLSERVER_DATASOURCE`
@@ -76,7 +76,7 @@ Optional configuration
 * `MSSQLSERVER_EXCEPTION_SORTER`
 
   * Description: Specifies the exception sorter class that is used to properly detect and clean up after fatal database connection exceptions. Valid value: `org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter`
   * System Property: `org.wildfly.datasources.mssqlserver.exception-sorter-class-name`
 
 * `MSSQLSERVER_FLUSH_STRATEGY`
