@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mariadb-datasource">
+    <dependencies>
+        <layer name="mariadb-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.data-source">
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="MariaDBDS"/>
+        <param name="enabled" value="${org.wildfly.datasources.mariadb.enabled,env.MARIADB_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.mariadb.exception-sorter-class-name,env.MARIADB_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.mariadb.jndi-name,env.MARIADB_JNDI:java:jboss/datasources/${org.wildfly.datasources.mariadb.datasource,env.MARIADB_DATASOURCE:MariaDBDS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.mariadb.jta,env.MARIADB_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.mariadb.max-pool-size,env.MARIADB_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.mariadb.min-pool-size,env.MARIADB_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.mariadb.connection-url,env.MARIADB_URL:jdbc:mariadb://${org.wildfly.datasources.mariadb.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST:localhost}:${org.wildfly.datasources.mariadb.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT:3306}/${org.wildfly.datasources.mariadb.database,env.MARIADB_DATABASE}}"/>
+        <param name="driver-name" value="mariadb"/>
+        <param name="user-name" value="${org.wildfly.datasources.mariadb.user-name,env.MARIADB_USER}"/>
+        <param name="password" value="${org.wildfly.datasources.mariadb.password,env.MARIADB_PASSWORD}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.mariadb.validate-on-match,env.MARIADB_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.mariadb.background-validation,env.MARIADB_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.mariadb.background-validation-millis,env.MARIADB_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.mariadb.flush-strategy,env.MARIADB_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.mariadb.stale-connection-checker-class-name,env.MARIADB_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.mariadb.valid-connection-checker-class-name,env.MARIADB_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.mariadb.transaction-isolation,env.MARIADB_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+

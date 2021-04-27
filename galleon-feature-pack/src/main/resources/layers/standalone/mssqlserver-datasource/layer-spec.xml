@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mssqlserver-datasource">
+    <dependencies>
+        <layer name="mssqlserver-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.data-source">
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="MSSQLServerDS"/>
+        <param name="enabled" value="${org.wildfly.datasources.mssqlserver.enabled, env.MSSQLSERVER_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.mssqlserver.exception-sorter-class-name, env.MSSQLSERVER_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.mssqlserver.jndi-name,env.MSSQLSERVER_JNDI:java:jboss/datasources/${org.wildfly.datasources.mssqlserver.datasource, env.MSSQLSERVER_DATASOURCE:MSSQLServerDS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.mssqlserver.jta,env.MSSQLSERVER_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.mssqlserver.max-pool-size,env.MSSQLSERVER_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.mssqlserver.min-pool-size,env.MSSQLSERVER_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.mssqlserver.connection-url,env.MSSQLSERVER_URL:jdbc:sqlserver://${org.wildfly.datasources.mssqlserver.host,env.MSSQLSERVER_SERVICE_HOST,env.MSSQLSERVER_HOST:localhost}:${org.wildfly.datasources.mssqlserver.port,env.MSSQLSERVER_SERVICE_PORT,env.MSSQLSERVER_PORT:1433};DatabaseName\=${org.wildfly.datasources.mssqlserver.database,env.MSSQLSERVER_DATABASE}}"/>
+        <param name="driver-name" value="mssqlserver"/>
+        <param name="user-name" value="${org.wildfly.datasources.mssqlserver.user-name,env.MSSQLSERVER_USER}"/>
+        <param name="password" value="${org.wildfly.datasources.mssqlserver.password,env.MSSQLSERVER_PASSWORD}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.mssqlserver.validate-on-match,env.MSSQLSERVER_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.mssqlserver.background-validation,env.MSSQLSERVER_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.mssqlserver.background-validation-millis,env.MSSQLSERVER_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.mssqlserver.flush-strategy,env.MSSQLSERVER_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.mssqlserver.stale-connection-checker-class-name,env.MSSQLSERVER_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.mssqlserver.valid-connection-checker-class-name,env.MSSQLSERVER_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.mssqlserver.transaction-isolation,env.MSSQLSERVER_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+

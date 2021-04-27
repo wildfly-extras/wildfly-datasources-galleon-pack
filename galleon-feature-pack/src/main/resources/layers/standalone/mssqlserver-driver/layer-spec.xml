@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mssqlserver-driver">
+    <feature spec="subsystem.datasources">
+        <feature spec="subsystem.datasources.jdbc-driver">
+            <param name="driver-name" value="mssqlserver"/>
+            <param name="jdbc-driver" value="mssqlserver"/>
+            <param name="driver-xa-datasource-class-name" value="com.microsoft.sqlserver.jdbc.SQLServerXADataSource"/>
+            <param name="driver-module-name" value="com.microsoft.sqlserver"/>
+        </feature>
+    </feature>
+    <packages>
+        <package name="com.microsoft.sqlserver"/>
+    </packages>
+</layer-spec>
+
