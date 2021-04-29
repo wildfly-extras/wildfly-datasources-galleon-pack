@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.microsoft.sqlserver:mssql-jdbc
+    versions:
+    - 9.3.0.jre15-preview
+  - dependency-name: org.wildfly.galleon-plugins:wildfly-galleon-maven-plugin
+    versions:
+    - 5.1.0.Final
+    - 5.1.1.Final
+    - 5.1.2.Final
+  - dependency-name: org.wildfly:wildfly-galleon-pack
+    versions:
+    - 23.0.0.Final
