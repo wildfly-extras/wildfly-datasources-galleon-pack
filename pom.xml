@@ -45,7 +45,7 @@
         <version.mysql.mysql-connector-java>8.0.24</version.mysql.mysql-connector-java>
         <version.org.jboss.galleon>4.2.7.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.5.1.Final</version.org.jboss.jboss-dmr>
-        <version.org.mariadb>2.7.2</version.org.mariadb>
+        <version.org.mariadb>2.7.3</version.org.mariadb>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
         <version.org.wildfly>23.0.2.Final</version.org.wildfly>
         <version.org.wildfly.core>15.0.1.Final</version.org.wildfly.core>
