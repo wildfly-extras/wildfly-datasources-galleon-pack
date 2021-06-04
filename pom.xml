@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack-parent</artifactId>
-    <version>2.0.1.Final</version>
+    <version>2.0.2.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Drivers and datasources for WildFly parent</name>
   
@@ -150,6 +150,6 @@
         <connection>scm:git:${wildfly-extras.repo.scm.connection}</connection>
         <developerConnection>scm:git:${wildfly-extras.repo.scm.connection}</developerConnection>
         <url>${wildfly-extras.repo.scm.url}</url>
-        <tag>2.0.1.Final</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
