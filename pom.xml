@@ -48,7 +48,7 @@
         <version.org.mariadb>2.7.3</version.org.mariadb>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
         <version.org.wildfly>24.0.0.Beta1</version.org.wildfly>
-        <version.org.wildfly.core>16.0.0.Beta5</version.org.wildfly.core>
+        <version.org.wildfly.core>16.0.0.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>4.0.3.Final</version.org.wildfly.jar.plugin>
         <version.org.wildfly.galleon-plugins>5.2.0.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
