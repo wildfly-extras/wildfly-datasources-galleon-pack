@@ -42,7 +42,7 @@
         <version.com.microsoft.sqlserver>9.2.1.jre8</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.junit>4.13.2</version.junit>
-        <version.mysql.mysql-connector-java>8.0.25</version.mysql.mysql-connector-java>
+        <version.mysql.mysql-connector-java>8.0.26</version.mysql.mysql-connector-java>
         <version.org.jboss.galleon>4.2.7.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.5.1.Final</version.org.jboss.jboss-dmr>
         <version.org.mariadb>2.7.3</version.org.mariadb>
