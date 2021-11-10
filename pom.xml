@@ -48,7 +48,7 @@
         <version.org.mariadb>2.7.4</version.org.mariadb>
         <version.org.wildfly>25.0.1.Final</version.org.wildfly>
         <version.org.wildfly.core>17.0.3.Final</version.org.wildfly.core>
-        <version.org.wildfly.jar.plugin>6.0.0.Final</version.org.wildfly.jar.plugin>
+        <version.org.wildfly.jar.plugin>6.1.0.Final</version.org.wildfly.jar.plugin>
         <version.org.wildfly.galleon-plugins>5.2.4.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
