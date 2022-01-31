@@ -31,6 +31,7 @@
 
     <properties>
         <test.bootable.jar.name>test-wildfly-datasources.jar</test.bootable.jar.name>
+        <test.preview.bootable.jar.name>test-wildfly-datasources-preview.jar</test.preview.bootable.jar.name>
         <testLogToFile>true</testLogToFile>
         <node0>127.0.0.1</node0>
         <management.address>${node0}</management.address>
@@ -55,9 +56,6 @@
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
                     <systemPropertyVariables>
                         <wildfly.bootable.jar>true</wildfly.bootable.jar>
-                        <wildfly.bootable.jar.jar>${project.build.directory}/${test.bootable.jar.name}</wildfly.bootable.jar.jar>
-                        <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-bootable</wildfly.bootable.jar.install.dir>
-                        <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
                         <management.address>${management.address}</management.address>
                         <jboss.args>${jboss.args}</jboss.args>
                     </systemPropertyVariables>
