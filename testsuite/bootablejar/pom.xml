@@ -72,6 +72,7 @@
                 <configuration>
                     <layers>
                         <layer>datasources-web-server</layer>
+                        <layer>h2database-datasource</layer>
                         <layer>mariadb-datasource</layer>
                         <layer>mssqlserver-datasource</layer>
                         <layer>mysql-datasource</layer>
@@ -188,6 +189,23 @@
                                 <ORACLE_CONNECTION_CHECKER>envfoochecker</ORACLE_CONNECTION_CHECKER>
                                 <ORACLE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</ORACLE_TX_ISOLATION>
                                 <ORACLE_FLUSH_STRATEGY>IdleConnections</ORACLE_FLUSH_STRATEGY>
+                                
+                                <H2DATABASE_ENABLED>false</H2DATABASE_ENABLED>
+                                <H2DATABASE_EXCEPTION_SORTER>envfoo</H2DATABASE_EXCEPTION_SORTER>
+                                <H2DATABASE_JNDI>envbar</H2DATABASE_JNDI>
+                                <H2DATABASE_JTA>false</H2DATABASE_JTA>
+                                <H2DATABASE_MAX_POOL_SIZE>8888</H2DATABASE_MAX_POOL_SIZE>
+                                <H2DATABASE_MIN_POOL_SIZE>77</H2DATABASE_MIN_POOL_SIZE>
+                                <H2DATABASE_URL>envfoourl</H2DATABASE_URL>
+                                <H2DATABASE_USER>envfoouser</H2DATABASE_USER>
+                                <H2DATABASE_PASSWORD>envfoopassword</H2DATABASE_PASSWORD>
+                                <H2DATABASE_VALIDATE_ON_MATCH>false</H2DATABASE_VALIDATE_ON_MATCH>
+                                <H2DATABASE_BACKGROUND_VALIDATION>true</H2DATABASE_BACKGROUND_VALIDATION>
+                                <H2DATABASE_BACKGROUND_VALIDATION_MILLIS>7</H2DATABASE_BACKGROUND_VALIDATION_MILLIS>
+                                <H2DATABASE_STALE_CONNECTION_CHECKER>envfoostalechecker</H2DATABASE_STALE_CONNECTION_CHECKER>
+                                <H2DATABASE_CONNECTION_CHECKER>envfoochecker</H2DATABASE_CONNECTION_CHECKER>
+                                <H2DATABASE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</H2DATABASE_TX_ISOLATION>
+                                <H2DATABASE_FLUSH_STRATEGY>IdleConnections</H2DATABASE_FLUSH_STRATEGY>
                                         
                                 <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
                                 <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
@@ -286,6 +304,7 @@
                                         
                                 <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
                                 
+                                <H2DATABASE_DATASOURCE>envbardatasource</H2DATABASE_DATASOURCE>
                                 <MYSQL_HOST>envfoohost</MYSQL_HOST>
                                 <MYSQL_PORT>envfooport</MYSQL_PORT>
                                 <MYSQL_DATABASE>envbardatabase</MYSQL_DATABASE>
@@ -324,6 +343,8 @@
                                 <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
                                         
                                 <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                
+                                <H2DATABASE_DATASOURCE>envbardatasource</H2DATABASE_DATASOURCE>
                                 
                                 <MYSQL_SERVICE_HOST>envfoohost</MYSQL_SERVICE_HOST>
                                 <MYSQL_SERVICE_PORT>envfooport</MYSQL_SERVICE_PORT>
@@ -382,6 +403,23 @@
                                 <ORACLE_CONNECTION_CHECKER>envfoochecker</ORACLE_CONNECTION_CHECKER>
                                 <ORACLE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</ORACLE_TX_ISOLATION>
                                 <ORACLE_FLUSH_STRATEGY>IdleConnections</ORACLE_FLUSH_STRATEGY>
+                                
+                                <H2DATABASE_ENABLED>false</H2DATABASE_ENABLED>
+                                <H2DATABASE_EXCEPTION_SORTER>envfoo</H2DATABASE_EXCEPTION_SORTER>
+                                <H2DATABASE_JNDI>envbar</H2DATABASE_JNDI>
+                                <H2DATABASE_JTA>false</H2DATABASE_JTA>
+                                <H2DATABASE_MAX_POOL_SIZE>8888</H2DATABASE_MAX_POOL_SIZE>
+                                <H2DATABASE_MIN_POOL_SIZE>77</H2DATABASE_MIN_POOL_SIZE>
+                                <H2DATABASE_URL>envfoourl</H2DATABASE_URL>
+                                <H2DATABASE_USER>envfoouser</H2DATABASE_USER>
+                                <H2DATABASE_PASSWORD>envfoopassword</H2DATABASE_PASSWORD>
+                                <H2DATABASE_VALIDATE_ON_MATCH>false</H2DATABASE_VALIDATE_ON_MATCH>
+                                <H2DATABASE_BACKGROUND_VALIDATION>true</H2DATABASE_BACKGROUND_VALIDATION>
+                                <H2DATABASE_BACKGROUND_VALIDATION_MILLIS>7</H2DATABASE_BACKGROUND_VALIDATION_MILLIS>
+                                <H2DATABASE_STALE_CONNECTION_CHECKER>envfoostalechecker</H2DATABASE_STALE_CONNECTION_CHECKER>
+                                <H2DATABASE_CONNECTION_CHECKER>envfoochecker</H2DATABASE_CONNECTION_CHECKER>
+                                <H2DATABASE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</H2DATABASE_TX_ISOLATION>
+                                <H2DATABASE_FLUSH_STRATEGY>IdleConnections</H2DATABASE_FLUSH_STRATEGY>
                                         
                                 <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
                                 <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
@@ -480,6 +518,8 @@
                                         
                                 <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
                                 
+                                <H2DATABASE_DATASOURCE>envbardatasource</H2DATABASE_DATASOURCE>
+                                
                                 <MYSQL_HOST>envfoohost</MYSQL_HOST>
                                 <MYSQL_PORT>envfooport</MYSQL_PORT>
                                 <MYSQL_DATABASE>envbardatabase</MYSQL_DATABASE>
@@ -518,6 +558,8 @@
                                 <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
                                         
                                 <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                
+                                <H2DATABASE_DATASOURCE>envbardatasource</H2DATABASE_DATASOURCE>
                                 
                                 <MYSQL_SERVICE_HOST>envfoohost</MYSQL_SERVICE_HOST>
                                 <MYSQL_SERVICE_PORT>envfooport</MYSQL_SERVICE_PORT>

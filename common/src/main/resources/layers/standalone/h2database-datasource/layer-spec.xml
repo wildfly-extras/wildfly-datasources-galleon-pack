@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="h2database-datasource">
+    <dependencies>
+        <layer name="h2database-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.data-source">
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="H2DatabaseDS"/>
+        <param name="enabled" value="${org.wildfly.datasources.h2database.enabled, env.H2DATABASE_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.h2database.exception-sorter-class-name,env.H2DATABASE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.h2database.jndi-name,env.H2DATABASE_JNDI:java:jboss/datasources/${org.wildfly.datasources.h2database.datasource, env.H2DATABASE_DATASOURCE,env.OPENSHIFT_H2DATABASE_DATASOURCE:H2DatabaseDS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.h2database.jta,env.H2DATABASE_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.h2database.max-pool-size,env.H2DATABASE_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.h2database.min-pool-size,env.H2DATABASE_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.h2database.connection-url,env.H2DATABASE_URL,env.OPENSHIFT_H2DATABASE_URL:jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}"/>
+        <param name="driver-name" value="h2database"/>
+        <param name="user-name" value="${org.wildfly.datasources.h2database.user-name,env.H2DATABASE_USER,env.OPENSHIFT_H2DATABASE_DB_USERNAME:sa}"/>
+        <param name="password" value="${org.wildfly.datasources.h2database.password,env.H2DATABASE_PASSWORD,env.OPENSHIFT_H2DATABASE_DB_PASSWORD:sa}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.h2database.validate-on-match,env.H2DATABASE_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.h2database.background-validation,env.H2DATABASE_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.h2database.background-validation-millis,env.H2DATABASE_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.h2database.flush-strategy,env.H2DATABASE_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.h2database.stale-connection-checker-class-name,env.H2DATABASE_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.h2database.valid-connection-checker-class-name,env.H2DATABASE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.h2database.transaction-isolation,env.H2DATABASE_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+

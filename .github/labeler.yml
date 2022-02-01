@@ -19,3 +19,6 @@ mysql:
   - "**/mysql-*/**/*"
 documentation:
   - doc/**/*
+h2database:
+  - "**/h2database/**/*"
+  - "**/h2database-*/**/*"

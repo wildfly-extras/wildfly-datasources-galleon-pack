@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="com.h2database.h2database" xmlns="urn:jboss:module:1.8">
+    <resources>
+        <artifact name="${com.h2database:h2}"/>
+    </resources>
+    <dependencies>
+        <module name="javaee.api"/>
+        <module name="sun.jdk"/>
+        <module name="ibm.jdk"/>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+
