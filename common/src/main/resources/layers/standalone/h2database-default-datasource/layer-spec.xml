@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="h2database-default-datasource">
+    <dependencies>
+        <layer name="h2database-datasource"/>
+    </dependencies>
+    
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="java:jboss/datasources/${env.H2DATABASE_DATASOURCE:H2DatabaseDS}"/>
+    </feature>
+</layer-spec>
+

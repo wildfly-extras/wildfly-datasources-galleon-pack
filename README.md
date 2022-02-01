@@ -17,6 +17,8 @@ The Maven coordinates to use is: `org.wildfly:wildfly-datasources-preview-galleo
 Datasources
 =======
 
+* [H2Database](doc/h2database/README.md)
+
 * [MariaDB](doc/mariadb/README.md)
 
 * [Microsoft SQL Server](doc/mssqlserver/README.md)

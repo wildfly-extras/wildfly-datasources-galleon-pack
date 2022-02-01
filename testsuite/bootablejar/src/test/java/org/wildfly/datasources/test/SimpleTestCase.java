@@ -42,6 +42,7 @@ public class SimpleTestCase {
     private static final String MARIADB_PREFIX = "MARIADB";
     private static final String MYSQL_PREFIX = "MYSQL";
     private static final String ORACLE_PREFIX = "ORACLE";
+    private static final String H2DATABASE_PREFIX = "H2DATABASE";
     private static final String POSTGRESQL_PREFIX = "POSTGRESQL";
     private static final String MSSQLSERVER_PREFIX = "MSSQLSERVER";
 
@@ -54,22 +55,24 @@ public class SimpleTestCase {
     private static final String MARIADB_DS = "MariaDBDS";
     private static final String MYSQL_DS = "MySQLDS";
     private static final String ORACLE_DS = "OracleDS";
+    private static final String H2DATABASE_DS = "H2DatabaseDS";
     private static final String POSTGRESQL_DS = "PostgreSQLDS";
     private static final String MSSQLSERVER_DS = "MSSQLServerDS";
     
     private static final String MARIADB_DRIVER = "mariadb";
     private static final String MYSQL_DRIVER = "mysql";
     private static final String ORACLE_DRIVER = "oracle";
+    private static final String H2DATABASE_DRIVER = "h2database";
     private static final String POSTGRESQL_DRIVER = "postgresql";
     private static final String MSSQLSERVER_DRIVER = "mssqlserver";
     
     private static final String PLACE_HOLDER = "XXX";
 
-    private static final String[] DATASOURCES = {ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
+    private static final String[] DATASOURCES = {H2DATABASE_DS, ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
     // These databases have host,port,database properties for connection-url
     private static final String[] DATASOURCES_WITH_HPD = {POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
 
-    private static final String[] DRIVERS = {ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER,MYSQL_DRIVER,MARIADB_DRIVER};
+    private static final String[] DRIVERS = {H2DATABASE_DRIVER, ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER,MYSQL_DRIVER,MARIADB_DRIVER};
     private static final String DATASOURCES_ADDRESS = "/subsystem=datasources/";
 
     private static final Map<String, Map<String, String>> SPECIFIC_DEFAULT_VALUES = new HashMap<>();
@@ -88,6 +91,7 @@ public class SimpleTestCase {
         DS_TO_SYSTEM_PROPERTY.put(MARIADB_DS, "mariadb");
         DS_TO_SYSTEM_PROPERTY.put(MYSQL_DS, "mysql");
         DS_TO_SYSTEM_PROPERTY.put(ORACLE_DS, "oracle");
+        DS_TO_SYSTEM_PROPERTY.put(H2DATABASE_DS, "h2database");
         DS_TO_SYSTEM_PROPERTY.put(POSTGRESQL_DS, "postgresql");
         DS_TO_SYSTEM_PROPERTY.put(MSSQLSERVER_DS, "mssqlserver");
 
@@ -122,6 +126,16 @@ public class SimpleTestCase {
         oracle.put("driver-name", ORACLE_DRIVER);
         oracle.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter");
         oracle.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker");
+
+        Map<String, String> h2database = new HashMap<>();
+        SPECIFIC_DEFAULT_VALUES.put(H2DATABASE_DS, h2database);
+        h2database.put("connection-url", "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
+        h2database.put("jndi-name", "java:jboss/datasources/H2DatabaseDS");
+        h2database.put("password", "sa");
+        h2database.put("user-name", "sa");
+        h2database.put("driver-name", H2DATABASE_DRIVER);
+        h2database.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
+        h2database.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
@@ -183,12 +197,14 @@ public class SimpleTestCase {
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".flush-strategy", "IdleConnections");
 
         ENV_VARIABLES_PREFIXES.put(ORACLE_PREFIX, ORACLE_DS);
+        ENV_VARIABLES_PREFIXES.put(H2DATABASE_PREFIX, H2DATABASE_DS);
         ENV_VARIABLES_PREFIXES.put(POSTGRESQL_PREFIX, POSTGRESQL_DS);
         ENV_VARIABLES_PREFIXES.put(MSSQLSERVER_PREFIX, MSSQLSERVER_DS);
         ENV_VARIABLES_PREFIXES.put(MYSQL_PREFIX, MYSQL_DS);
         ENV_VARIABLES_PREFIXES.put(MARIADB_PREFIX, MARIADB_DS);
 
         DS_TO_PREFIX.put(ORACLE_DS, ORACLE_PREFIX);
+        DS_TO_PREFIX.put(H2DATABASE_DS, H2DATABASE_PREFIX);
         DS_TO_PREFIX.put(POSTGRESQL_DS, POSTGRESQL_PREFIX);
         DS_TO_PREFIX.put(MSSQLSERVER_DS, MSSQLSERVER_PREFIX);
         DS_TO_PREFIX.put(MYSQL_DS, MYSQL_PREFIX);

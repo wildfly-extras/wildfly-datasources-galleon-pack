@@ -79,7 +79,7 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <!-- transformation of drivers, only oracle driver is transformed, it contains a ResourceAdapter impl. Not used. -->
+                            <!-- transformation of drivers, oracle (ResourceAdapter API) and h2 driver (Servlet API) are transformed. -->
                             <jakarta-transform>true</jakarta-transform>
                             <resources-dir>${basedir}/target/resources</resources-dir>
                         </configuration>
