@@ -57,6 +57,18 @@
         <dependencies>
             <dependency>
                 <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-datasources-galleon-pack-common</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-preview-feature-pack</artifactId>
+                <version>${version.org.wildfly}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ee-galleon-pack</artifactId>
                 <version>${version.org.wildfly}</version>
                 <type>zip</type>
@@ -151,7 +163,9 @@
         </repository>
     </repositories>
     <modules>
-        <module>galleon-feature-pack</module>
+        <module>common</module>
+        <module>datasources-preview-galleon-pack</module>
+        <module>datasources-galleon-pack</module>
         <module>testsuite</module>
     </modules>
     <scm>

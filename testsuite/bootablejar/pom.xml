@@ -37,6 +37,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>wildfly-datasources-preview-galleon-pack</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.wildfly.core</groupId>
             <artifactId>wildfly-core-test-runner</artifactId>
             <scope>test</scope>
@@ -63,18 +70,6 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-jar-maven-plugin</artifactId>
                 <configuration>
-                    <feature-packs>
-                        <feature-pack>
-                            <groupId>org.wildfly</groupId>
-                            <artifactId>wildfly-ee-galleon-pack</artifactId>
-                            <version>${version.org.wildfly}</version>
-                        </feature-pack>
-                        <feature-pack>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>wildfly-datasources-galleon-pack</artifactId>
-                            <version>${project.version}</version>
-                        </feature-pack>
-                    </feature-packs>
                     <layers>
                         <layer>datasources-web-server</layer>
                         <layer>mariadb-datasource</layer>
@@ -87,7 +82,6 @@
                     <plugin-options>
                         <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
                     </plugin-options>
-                    <output-file-name>${test.bootable.jar.name}</output-file-name>
                 </configuration>
                 <executions>
                     <execution>
@@ -96,6 +90,45 @@
                             <goal>package</goal>
                         </goals>
                         <phase>compile</phase>
+                        <configuration>
+                            <feature-packs>
+                                <feature-pack>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-ee-galleon-pack</artifactId>
+                                    <version>${version.org.wildfly}</version>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-datasources-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                </feature-pack>
+                            </feature-packs>
+                            <bootableJarBuildArtifacts>build-artifacts</bootableJarBuildArtifacts>
+                            <output-file-name>${test.bootable.jar.name}</output-file-name>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-preview-bootable-jar</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <feature-packs>
+                                <feature-pack>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-preview-feature-pack</artifactId>
+                                    <version>${version.org.wildfly}</version>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-datasources-preview-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                </feature-pack>
+                            </feature-packs>
+                            <bootableJarBuildArtifacts>build-artifacts-preview</bootableJarBuildArtifacts>
+                            <output-file-name>${test.preview.bootable.jar.name}</output-file-name>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -104,12 +137,38 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>test-with-all-env</id>
+                        <id>default-test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>NONE</phase>
+                    </execution>
+                    <execution>
+                        <id>test-no-env</id>
                         <goals>
                             <goal>test</goal>
                         </goals>
                         <phase>test</phase>
                         <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-with-all-env</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration >
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
+                            </systemPropertyVariables>
                             <environmentVariables>
                                 <WILDFLY_WITH_ALL_ENV_TEST>true</WILDFLY_WITH_ALL_ENV_TEST>
                                         
@@ -207,6 +266,11 @@
                         </goals>
                         <phase>test</phase>
                         <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
+                            </systemPropertyVariables>
                             <environmentVariables>
                                 <WILDFLY_WITH_ENV_TEST>true</WILDFLY_WITH_ENV_TEST>
                                         
@@ -241,6 +305,205 @@
                         </goals>
                         <phase>test</phase>
                         <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
+                            </systemPropertyVariables>
+                            <environmentVariables>
+                                <WILDFLY_WITH_ENV_TEST>true</WILDFLY_WITH_ENV_TEST>
+                                        
+                                <POSTGRESQL_SERVICE_HOST>envfoohost</POSTGRESQL_SERVICE_HOST>
+                                <POSTGRESQL_SERVICE_PORT>envfooport</POSTGRESQL_SERVICE_PORT>
+                                <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
+                                <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                <MSSQLSERVER_SERVICE_HOST>envfoohost</MSSQLSERVER_SERVICE_HOST>
+                                <MSSQLSERVER_SERVICE_PORT>envfooport</MSSQLSERVER_SERVICE_PORT>
+                                <MSSQLSERVER_DATABASE>envbardatabase</MSSQLSERVER_DATABASE>
+                                <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
+                                        
+                                <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                
+                                <MYSQL_SERVICE_HOST>envfoohost</MYSQL_SERVICE_HOST>
+                                <MYSQL_SERVICE_PORT>envfooport</MYSQL_SERVICE_PORT>
+                                <MYSQL_DATABASE>envbardatabase</MYSQL_DATABASE>
+                                <MYSQL_DATASOURCE>envbardatasource</MYSQL_DATASOURCE>
+                                
+                                <MARIADB_SERVICE_HOST>envfoohost</MARIADB_SERVICE_HOST>
+                                <MARIADB_SERVICE_PORT>envfooport</MARIADB_SERVICE_PORT>
+                                <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
+                                <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-preview-no-env</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.preview.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-preview-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-preview-bootable</jboss.home>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-preview-with-all-env</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.preview.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-preview-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-preview-bootable</jboss.home>
+                            </systemPropertyVariables>
+                            <environmentVariables>
+                                <WILDFLY_WITH_ALL_ENV_TEST>true</WILDFLY_WITH_ALL_ENV_TEST>
+                                        
+                                <ORACLE_ENABLED>false</ORACLE_ENABLED>
+                                <ORACLE_EXCEPTION_SORTER>envfoo</ORACLE_EXCEPTION_SORTER>
+                                <ORACLE_JNDI>envbar</ORACLE_JNDI>
+                                <ORACLE_JTA>false</ORACLE_JTA>
+                                <ORACLE_MAX_POOL_SIZE>8888</ORACLE_MAX_POOL_SIZE>
+                                <ORACLE_MIN_POOL_SIZE>77</ORACLE_MIN_POOL_SIZE>
+                                <ORACLE_URL>envfoourl</ORACLE_URL>
+                                <ORACLE_USER>envfoouser</ORACLE_USER>
+                                <ORACLE_PASSWORD>envfoopassword</ORACLE_PASSWORD>
+                                <ORACLE_VALIDATE_ON_MATCH>false</ORACLE_VALIDATE_ON_MATCH>
+                                <ORACLE_BACKGROUND_VALIDATION>true</ORACLE_BACKGROUND_VALIDATION>
+                                <ORACLE_BACKGROUND_VALIDATION_MILLIS>7</ORACLE_BACKGROUND_VALIDATION_MILLIS>
+                                <ORACLE_STALE_CONNECTION_CHECKER>envfoostalechecker</ORACLE_STALE_CONNECTION_CHECKER>
+                                <ORACLE_CONNECTION_CHECKER>envfoochecker</ORACLE_CONNECTION_CHECKER>
+                                <ORACLE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</ORACLE_TX_ISOLATION>
+                                <ORACLE_FLUSH_STRATEGY>IdleConnections</ORACLE_FLUSH_STRATEGY>
+                                        
+                                <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
+                                <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
+                                <POSTGRESQL_JNDI>envbar</POSTGRESQL_JNDI>
+                                <POSTGRESQL_JTA>false</POSTGRESQL_JTA>
+                                <POSTGRESQL_MAX_POOL_SIZE>8888</POSTGRESQL_MAX_POOL_SIZE>
+                                <POSTGRESQL_MIN_POOL_SIZE>77</POSTGRESQL_MIN_POOL_SIZE>
+                                <POSTGRESQL_URL>envfoourl</POSTGRESQL_URL>
+                                <POSTGRESQL_USER>envfoouser</POSTGRESQL_USER>
+                                <POSTGRESQL_PASSWORD>envfoopassword</POSTGRESQL_PASSWORD>
+                                <POSTGRESQL_VALIDATE_ON_MATCH>false</POSTGRESQL_VALIDATE_ON_MATCH>
+                                <POSTGRESQL_BACKGROUND_VALIDATION>true</POSTGRESQL_BACKGROUND_VALIDATION>
+                                <POSTGRESQL_BACKGROUND_VALIDATION_MILLIS>7</POSTGRESQL_BACKGROUND_VALIDATION_MILLIS>
+                                <POSTGRESQL_STALE_CONNECTION_CHECKER>envfoostalechecker</POSTGRESQL_STALE_CONNECTION_CHECKER>
+                                <POSTGRESQL_CONNECTION_CHECKER>envfoochecker</POSTGRESQL_CONNECTION_CHECKER>
+                                <POSTGRESQL_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</POSTGRESQL_TX_ISOLATION>
+                                <POSTGRESQL_FLUSH_STRATEGY>IdleConnections</POSTGRESQL_FLUSH_STRATEGY>
+                                        
+                                <MSSQLSERVER_ENABLED>false</MSSQLSERVER_ENABLED>
+                                <MSSQLSERVER_EXCEPTION_SORTER>envfoo</MSSQLSERVER_EXCEPTION_SORTER>
+                                <MSSQLSERVER_JNDI>envbar</MSSQLSERVER_JNDI>
+                                <MSSQLSERVER_JTA>false</MSSQLSERVER_JTA>
+                                <MSSQLSERVER_MAX_POOL_SIZE>8888</MSSQLSERVER_MAX_POOL_SIZE>
+                                <MSSQLSERVER_MIN_POOL_SIZE>77</MSSQLSERVER_MIN_POOL_SIZE>
+                                <MSSQLSERVER_URL>envfoourl</MSSQLSERVER_URL>
+                                <MSSQLSERVER_USER>envfoouser</MSSQLSERVER_USER>
+                                <MSSQLSERVER_PASSWORD>envfoopassword</MSSQLSERVER_PASSWORD>
+                                <MSSQLSERVER_VALIDATE_ON_MATCH>false</MSSQLSERVER_VALIDATE_ON_MATCH>
+                                <MSSQLSERVER_BACKGROUND_VALIDATION>true</MSSQLSERVER_BACKGROUND_VALIDATION>
+                                <MSSQLSERVER_BACKGROUND_VALIDATION_MILLIS>7</MSSQLSERVER_BACKGROUND_VALIDATION_MILLIS>
+                                <MSSQLSERVER_STALE_CONNECTION_CHECKER>envfoostalechecker</MSSQLSERVER_STALE_CONNECTION_CHECKER>
+                                <MSSQLSERVER_CONNECTION_CHECKER>envfoochecker</MSSQLSERVER_CONNECTION_CHECKER>
+                                <MSSQLSERVER_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MSSQLSERVER_TX_ISOLATION>
+                                <MSSQLSERVER_FLUSH_STRATEGY>IdleConnections</MSSQLSERVER_FLUSH_STRATEGY>
+                                
+                                <MYSQL_ENABLED>false</MYSQL_ENABLED>
+                                <MYSQL_EXCEPTION_SORTER>envfoo</MYSQL_EXCEPTION_SORTER>
+                                <MYSQL_JNDI>envbar</MYSQL_JNDI>
+                                <MYSQL_JTA>false</MYSQL_JTA>
+                                <MYSQL_MAX_POOL_SIZE>8888</MYSQL_MAX_POOL_SIZE>
+                                <MYSQL_MIN_POOL_SIZE>77</MYSQL_MIN_POOL_SIZE>
+                                <MYSQL_URL>envfoourl</MYSQL_URL>
+                                <MYSQL_USER>envfoouser</MYSQL_USER>
+                                <MYSQL_PASSWORD>envfoopassword</MYSQL_PASSWORD>
+                                <MYSQL_VALIDATE_ON_MATCH>false</MYSQL_VALIDATE_ON_MATCH>
+                                <MYSQL_BACKGROUND_VALIDATION>true</MYSQL_BACKGROUND_VALIDATION>
+                                <MYSQL_BACKGROUND_VALIDATION_MILLIS>7</MYSQL_BACKGROUND_VALIDATION_MILLIS>
+                                <MYSQL_STALE_CONNECTION_CHECKER>envfoostalechecker</MYSQL_STALE_CONNECTION_CHECKER>
+                                <MYSQL_CONNECTION_CHECKER>envfoochecker</MYSQL_CONNECTION_CHECKER>
+                                <MYSQL_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MYSQL_TX_ISOLATION>
+                                <MYSQL_FLUSH_STRATEGY>IdleConnections</MYSQL_FLUSH_STRATEGY> 
+                                
+                                <MARIADB_ENABLED>false</MARIADB_ENABLED>
+                                <MARIADB_EXCEPTION_SORTER>envfoo</MARIADB_EXCEPTION_SORTER>
+                                <MARIADB_JNDI>envbar</MARIADB_JNDI>
+                                <MARIADB_JTA>false</MARIADB_JTA>
+                                <MARIADB_MAX_POOL_SIZE>8888</MARIADB_MAX_POOL_SIZE>
+                                <MARIADB_MIN_POOL_SIZE>77</MARIADB_MIN_POOL_SIZE>
+                                <MARIADB_URL>envfoourl</MARIADB_URL>
+                                <MARIADB_USER>envfoouser</MARIADB_USER>
+                                <MARIADB_PASSWORD>envfoopassword</MARIADB_PASSWORD>
+                                <MARIADB_VALIDATE_ON_MATCH>false</MARIADB_VALIDATE_ON_MATCH>
+                                <MARIADB_BACKGROUND_VALIDATION>true</MARIADB_BACKGROUND_VALIDATION>
+                                <MARIADB_BACKGROUND_VALIDATION_MILLIS>7</MARIADB_BACKGROUND_VALIDATION_MILLIS>
+                                <MARIADB_STALE_CONNECTION_CHECKER>envfoostalechecker</MARIADB_STALE_CONNECTION_CHECKER>
+                                <MARIADB_CONNECTION_CHECKER>envfoochecker</MARIADB_CONNECTION_CHECKER>
+                                <MARIADB_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MARIADB_TX_ISOLATION>
+                                <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY> 
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-preview-with-no-service-env</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.preview.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-preview-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-preview-bootable</jboss.home>
+                            </systemPropertyVariables>
+                            <environmentVariables>
+                                <WILDFLY_WITH_ENV_TEST>true</WILDFLY_WITH_ENV_TEST>
+                                        
+                                <POSTGRESQL_HOST>envfoohost</POSTGRESQL_HOST>
+                                <POSTGRESQL_PORT>envfooport</POSTGRESQL_PORT>
+                                <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
+                                <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                <MSSQLSERVER_HOST>envfoohost</MSSQLSERVER_HOST>
+                                <MSSQLSERVER_PORT>envfooport</MSSQLSERVER_PORT>
+                                <MSSQLSERVER_DATABASE>envbardatabase</MSSQLSERVER_DATABASE>
+                                <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
+                                        
+                                <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                
+                                <MYSQL_HOST>envfoohost</MYSQL_HOST>
+                                <MYSQL_PORT>envfooport</MYSQL_PORT>
+                                <MYSQL_DATABASE>envbardatabase</MYSQL_DATABASE>
+                                <MYSQL_DATASOURCE>envbardatasource</MYSQL_DATASOURCE>
+                                
+                                <MARIADB_HOST>envfoohost</MARIADB_HOST>
+                                <MARIADB_PORT>envfooport</MARIADB_PORT>
+                                <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
+                                <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-preview-with-service-env</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <wildfly.bootable.jar.jar>${project.build.directory}/${test.preview.bootable.jar.name}</wildfly.bootable.jar.jar>
+                                <wildfly.bootable.jar.install.dir>${project.build.directory}/wildfly-preview-bootable</wildfly.bootable.jar.install.dir>
+                                <jboss.home>${project.build.directory}/wildfly-preview-bootable</jboss.home>
+                            </systemPropertyVariables>
                             <environmentVariables>
                                 <WILDFLY_WITH_ENV_TEST>true</WILDFLY_WITH_ENV_TEST>
                                         
