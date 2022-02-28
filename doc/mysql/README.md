@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `mysql-default-datasource`: Provision the `MySQLDS` non xa datasource and configure it as the default one. Depends on `mysql-datasource` layer.
 * `mysql-datasource`: Provision the `MySQLDS` non xa datasource. Depends on `mysql-driver` layer.
 * `mysql-driver`: Provision the `mysql` driver. This layer installs the JBoss Modules module `com.mysql.jdbc`.
 

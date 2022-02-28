@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `mariadb-default-datasource`: Provision the `MariaDBDS` non xa datasource and configure it as the default one. Depends on `mariadb-datasource` layer.
 * `mariadb-datasource`: Provision the `MariaDBDS` non xa datasource. Depends on `mariadb-driver` layer.
 * `mariadb-driver`: Provision the `mariadb` driver. This layer installs the JBoss Modules module `org.mariadb.jdbc`.
 

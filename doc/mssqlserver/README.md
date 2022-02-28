@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `mssqlserver-default-datasource`: Provision the `MSSQLServerDS` non xa datasource and configure it as the default one. Depends on `mssqlserver-datasource` layer.
 * `mssqlserver-datasource`: Provision the `MSSQLServerDS` non xa datasource. Depends on `mssqlserver-driver` layer.
 * `mssqlserver-driver`: Provision the `mssqlserver` driver. This layer installs the JBoss Modules module `com.microsoft.sqlserver`.
 

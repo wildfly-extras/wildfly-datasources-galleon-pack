@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `h2database-default-datasource`: Provision the `H2DatabaseDS` non xa datasource and configure it as the default one. Depends on `h2database-datasource` layer.
 * `h2database-datasource`: Provision the `H2DatabaseDS` non xa datasource. Depends on `h2database-driver` layer.
 * `h2database-driver`: Provision the `h2database` driver. This layer installs the JBoss Modules module `com.h2database.h2database`.
 

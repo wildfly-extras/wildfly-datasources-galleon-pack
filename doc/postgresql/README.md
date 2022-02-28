@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `postgresql-default-datasource`: Provision the `PostgreSQLDS` non xa datasource and configures it as the default one. Depends on `postgresql-datasource` layer.
 * `postgresql-datasource`: Provision the `PostgreSQLDS` non xa datasource. Depends on `postgresql-driver` layer.
 * `postgresql-driver`: Provision the `postgresql` driver. This layer installs the JBoss Modules module `org.postgresql.jdbc`.
 
