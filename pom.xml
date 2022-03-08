@@ -38,7 +38,7 @@
         </license>
     </licenses>
     <properties>
-        <version.org.postgresql.postgresql>42.3.2</version.org.postgresql.postgresql>
+        <version.org.postgresql.postgresql>42.3.3</version.org.postgresql.postgresql>
         <version.com.h2database>2.1.210</version.com.h2database>
         <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
