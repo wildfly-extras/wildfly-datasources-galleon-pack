@@ -1,6 +1,7 @@
 Galleon Layers
 =========
 
+* `oracle-default-datasource`: Provision the `OracleDS` non xa datasource and configure it as the default one. Depends on `oracle-datasource` layer.
 * `oracle-datasource`: Provision the `OracleDS` non xa datasource. Depends on `oracle-driver` layer.
 * `oracle-driver`: Provision the `oracle` driver. This layer installs the JBoss Modules module `com.oracle.ojdbc`.
 
