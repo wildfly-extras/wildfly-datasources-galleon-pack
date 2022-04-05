@@ -9,6 +9,7 @@
         <param name="data-source" value="H2DatabaseDS"/>
         <param name="enabled" value="${org.wildfly.datasources.h2database.enabled, env.H2DATABASE_ENABLED:true}"/>
         <param name="exception-sorter-class-name" value="${org.wildfly.datasources.h2database.exception-sorter-class-name,env.H2DATABASE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
+        <param name="idle-timeout-minutes" value="${org.wildfly.datasources.h2database.idle-timeout-minutes,env.H2DATABASE_IDLE_TIMEOUT_MINUTES:30}"/>
         <param name="jndi-name" value="${org.wildfly.datasources.h2database.jndi-name,env.H2DATABASE_JNDI:java:jboss/datasources/${org.wildfly.datasources.h2database.datasource, env.H2DATABASE_DATASOURCE,env.OPENSHIFT_H2DATABASE_DATASOURCE:H2DatabaseDS}}"/>
         <param name="jta" value="${org.wildfly.datasources.h2database.jta,env.H2DATABASE_JTA:true}"/>
         <param name="max-pool-size" value="${org.wildfly.datasources.h2database.max-pool-size,env.H2DATABASE_MAX_POOL_SIZE:20}"/>

@@ -93,6 +93,12 @@ Optional configuration
   * Required: True if `POSTGRESQL_URL` is not set.
   * System Property: `org.wildfly.datasources.postgresql.host`
 
+* `POSTGRESQL_IDLE_TIMEOUT_MINUTES`
+
+  * Description: Specifies the maximum time, in minutes, a connection may be idle before being closed.
+  * Default Value:`30`
+  * System Property: `org.wildfly.datasources.postgresql.idle-timeout-minutes`
+
 * `POSTGRESQL_JNDI`
 
   * Description: Defines the JNDI name for the datasource.

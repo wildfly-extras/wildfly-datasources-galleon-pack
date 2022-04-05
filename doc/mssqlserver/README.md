@@ -93,6 +93,12 @@ Optional configuration
   * Required: True if `MSSQLSERVER_URL` is not set.
   * System Property: `org.wildfly.datasources.mssqlserver.host`
 
+* `MSSQLSERVER_IDLE_TIMEOUT_MINUTES`
+
+  * Description: Specifies the maximum time, in minutes, a connection may be idle before being closed.
+  * Default Value:`30`
+  * System Property: `org.wildfly.datasources.mssqlserver.idle-timeout-minutes`
+
 * `MSSQLSERVER_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
