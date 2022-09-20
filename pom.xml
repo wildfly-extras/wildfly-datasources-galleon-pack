@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack-parent</artifactId>
-    <version>2.2.6.Final-SNAPSHOT</version>
+    <version>3.0.0.Alpha1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Drivers and datasources for WildFly parent</name>
   
@@ -38,19 +38,23 @@
         </license>
     </licenses>
     <properties>
+        <!-- Require Java 11 -->
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
         <version.org.postgresql.postgresql>42.5.0</version.org.postgresql.postgresql>
         <version.com.h2database>2.1.214</version.com.h2database>
         <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
+        <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
         <version.mysql.mysql-connector-java>8.0.30</version.mysql.mysql-connector-java>
-        <version.org.jboss.galleon>4.2.8.Final</version.org.jboss.galleon>
+        <version.org.jboss.galleon>5.0.5.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.6.1.Final</version.org.jboss.jboss-dmr>
         <version.org.mariadb>3.0.7</version.org.mariadb>
-        <version.org.wildfly>26.1.2.Final</version.org.wildfly>
-        <version.org.wildfly.core>18.1.2.Final</version.org.wildfly.core>
-        <version.org.wildfly.jar.plugin>7.0.2.Final</version.org.wildfly.jar.plugin>
-        <version.org.wildfly.galleon-plugins>5.2.11.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly>27.0.0.Alpha5</version.org.wildfly>
+        <version.org.wildfly.core>19.0.0.Beta18</version.org.wildfly.core>
+        <version.org.wildfly.jar.plugin>8.0.0.Final</version.org.wildfly.jar.plugin>
+        <version.org.wildfly.galleon-plugins>6.1.0.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
@@ -124,6 +128,11 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${version.junit}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${version.inject}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
