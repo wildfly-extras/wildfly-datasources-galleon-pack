@@ -50,7 +50,7 @@
         <version.mysql.mysql-connector-java>8.0.30</version.mysql.mysql-connector-java>
         <version.org.jboss.galleon>5.0.5.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.6.1.Final</version.org.jboss.jboss-dmr>
-        <version.org.mariadb>3.0.7</version.org.mariadb>
+        <version.org.mariadb>3.0.8</version.org.mariadb>
         <version.org.wildfly>27.0.0.Beta1</version.org.wildfly>
         <version.org.wildfly.core>19.0.0.Beta18</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>8.0.0.Final</version.org.wildfly.jar.plugin>
