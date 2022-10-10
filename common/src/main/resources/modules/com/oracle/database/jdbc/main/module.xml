@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module name="com.oracle.ojdbc" xmlns="urn:jboss:module:1.8">
+<module name="com.oracle.database.jdbc" xmlns="urn:jboss:module:1.8">
     <resources>
-        <artifact name="${com.oracle.ojdbc:ojdbc8}"/>
+        <artifact name="${com.oracle.database.jdbc:ojdbc8}"/>
     </resources>
     <dependencies>
         <module name="wildflyee.api"/>
