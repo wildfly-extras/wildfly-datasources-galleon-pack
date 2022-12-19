@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module name="com.mysql.jdbc" xmlns="urn:jboss:module:1.8">
     <resources>
-        <artifact name="${mysql:mysql-connector-java}"/>
+        <artifact name="${com.mysql:mysql-connector-j}"/>
     </resources>
     <dependencies>
         <module name="wildflyee.api"/>
