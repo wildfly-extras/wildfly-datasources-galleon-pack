@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack-parent</artifactId>
-    <version>3.0.2.Final-SNAPSHOT</version>
+    <version>4.0.0.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Drivers and datasources for WildFly parent</name>
   
@@ -48,10 +48,9 @@
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
         <version.com.mysql.mysql-connector-j>8.0.32</version.com.mysql.mysql-connector-j>
-        <version.org.jboss.galleon>5.0.5.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.6.1.Final</version.org.jboss.jboss-dmr>
         <version.org.mariadb>3.1.3</version.org.mariadb>
-        <version.org.wildfly>27.0.1.Final</version.org.wildfly>
+        <version.org.wildfly>28.0.0.Beta1</version.org.wildfly>
         <version.org.wildfly.core>20.0.0.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>9.0.0.Final</version.org.wildfly.jar.plugin>
         <version.org.wildfly.galleon-plugins>6.4.0.Final</version.org.wildfly.galleon-plugins>
