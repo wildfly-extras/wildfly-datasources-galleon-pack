@@ -1,5 +1,12 @@
 <?xml version="1.0" ?>
-<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mssqlserver-driver">
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mssqlserver-driver">
+    <props>
+        <prop name="org.wildfly.rule.xml-path" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/datasource/driver,mssqlserver"/>
+        <prop name="org.wildfly.rule.xml-path-xa" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/xa-datasource/driver,mssqlserver"/>
+    </props>
+    <dependencies>
+        <layer name="datasources"/>
+    </dependencies>
     <feature spec="subsystem.datasources">
         <feature spec="subsystem.datasources.jdbc-driver">
             <param name="driver-name" value="mssqlserver"/>

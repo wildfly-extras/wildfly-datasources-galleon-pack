@@ -1,6 +1,14 @@
 <?xml version="1.0" ?>
-<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mysql-default-datasource">
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mysql-default-datasource">
+    <props>
+        <prop name="org.wildfly.rule.add-on" value="database,mysql:default"/>
+        <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
+        <prop name="org.wildfly.rule.add-on-fix-no-default-datasource" value=""/>
+        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/jfdenise/wildfly-datasources-galleon-pack/layers_metadata/doc/mysql/env.yaml"/>
+        <prop name="org.wildfly.rule.add-on-depends-on" value="only:datasources"/>
+    </props>
     <dependencies>
+        <layer name="datasources"/>
         <layer name="mysql-datasource"/>
     </dependencies>
     

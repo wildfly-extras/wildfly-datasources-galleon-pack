@@ -88,7 +88,7 @@ Optional configuration
 * `ORACLE_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
-  * Default Value:` java:jboss/datasources/${ORACLE_DATASOURCE}`
+  * Default Value: `java:jboss/datasources/${ORACLE_DATASOURCE}`
   * System Property: `org.wildfly.datasources.oracle.jndi-name`
 
 * `ORACLE_JTA`
