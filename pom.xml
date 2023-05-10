@@ -53,7 +53,7 @@
         <version.org.wildfly>28.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>20.0.1.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>9.0.0.Final</version.org.wildfly.jar.plugin>
-        <version.org.wildfly.galleon-plugins>6.4.1.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>6.4.2.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
