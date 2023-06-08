@@ -43,7 +43,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <version.org.postgresql.postgresql>42.6.0</version.org.postgresql.postgresql>
         <version.com.h2database>2.1.214</version.com.h2database>
-        <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
+        <version.com.microsoft.sqlserver>12.3.1.jre8-preview</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
