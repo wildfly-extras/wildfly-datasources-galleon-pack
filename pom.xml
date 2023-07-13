@@ -50,9 +50,9 @@
         <version.com.mysql.mysql-connector-j>8.0.33</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.6.1.Final</version.org.jboss.jboss-dmr>
         <version.org.mariadb>3.1.4</version.org.mariadb>
-        <version.org.wildfly>28.0.1.Final</version.org.wildfly>
-        <version.org.wildfly.core>20.0.2.Final</version.org.wildfly.core>
-        <version.org.wildfly.jar.plugin>9.0.0.Final</version.org.wildfly.jar.plugin>
+        <version.org.wildfly>29.0.0.Beta1</version.org.wildfly>
+        <version.org.wildfly.core>21.1.0.Beta2</version.org.wildfly.core>
+        <version.org.wildfly.jar.plugin>10.0.0.Beta1</version.org.wildfly.jar.plugin>
         <version.org.wildfly.galleon-plugins>6.4.2.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
