@@ -102,7 +102,7 @@ Optional configuration
 * `MSSQLSERVER_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
-  * Default Value:` java:jboss/datasources/${MSSQLSERVER_DATASOURCE}`
+  * Default Value: `java:jboss/datasources/${MSSQLSERVER_DATASOURCE}`
   * System Property: `org.wildfly.datasources.mssqlserver.jndi-name`
 
 * `MSSQLSERVER_JTA`

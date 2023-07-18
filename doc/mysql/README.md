@@ -102,7 +102,7 @@ Optional configuration
 * `MYSQL_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
-  * Default Value:` java:jboss/datasources/${MYSQL_DATASOURCE}`
+  * Default Value: `java:jboss/datasources/${MYSQL_DATASOURCE}`
   * System Property: `org.wildfly.datasources.mysql.jndi-name`
 
 * `MYSQL_JTA`
@@ -126,7 +126,7 @@ Optional configuration
 * `MYSQL_PORT` (or `MYSQL_SERVICE_PORT` or `OPENSHIFT_MYSQL_DB_PORT`)
 
   * Description: Defines the database server’s port to be used in the datasource’s `connection-url` property. 
-  * Default Value: `5432`
+  * Default Value: `3306`
   * Required: True if `MYSQL_URL` is not set.
   * System Property: `org.wildfly.datasources.mysql.port`
 

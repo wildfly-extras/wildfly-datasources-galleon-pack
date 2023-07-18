@@ -102,7 +102,7 @@ Optional configuration
 * `POSTGRESQL_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
-  * Default Value:` java:jboss/datasources/${POSTGRESQL_DATASOURCE}`
+  * Default Value: `java:jboss/datasources/${POSTGRESQL_DATASOURCE}`
   * System Property: `org.wildfly.datasources.postgresql.jndi-name`
 
 * `POSTGRESQL_JTA`

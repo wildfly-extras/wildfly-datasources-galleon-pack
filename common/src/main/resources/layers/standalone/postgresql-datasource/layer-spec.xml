@@ -1,6 +1,14 @@
 <?xml version="1.0" ?>
-<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="postgresql-datasource">
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="postgresql-datasource">
+    <props>
+        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/jfdenise/wildfly-datasources-galleon-pack/layers_metadata/doc/postgresql/env.yaml"/>
+        <prop name="org.wildfly.rule.add-on" value="database,postgresql"/>
+        <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
+        <prop name="org.wildfly.rule.add-on-fix-unbound-datasources" value="JNDI env,POSTGRESQL_JNDI=##ITEM##"/>
+        <prop name="org.wildfly.rule.add-on-depends-on" value="only:datasources"/>
+    </props>
     <dependencies>
+        <layer name="datasources"/>
         <layer name="postgresql-driver"/>
     </dependencies>
     

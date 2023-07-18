@@ -102,7 +102,7 @@ Optional configuration
 * `MARIADB_JNDI`
 
   * Description: Defines the JNDI name for the datasource.
-  * Default Value:` java:jboss/datasources/${MARIADB_DATASOURCE}`
+  * Default Value: `java:jboss/datasources/${MARIADB_DATASOURCE}`
   * System Property: `org.wildfly.datasources.mariadb.jndi-name`
 
 * `MARIADB_JTA`
@@ -126,7 +126,7 @@ Optional configuration
 * `MARIADB_PORT` (or `MARIADB_SERVICE_PORT`)
 
   * Description: Defines the database server’s port to be used in the datasource’s `connection-url` property. 
-  * Default Value: `5432`
+  * Default Value: `3306`
   * Required: True if `MARIADB_URL` is not set.
   * System Property: `org.wildfly.datasources.mariadb.port`
 
