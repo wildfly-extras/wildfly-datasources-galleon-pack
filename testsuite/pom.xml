@@ -67,5 +67,6 @@
     
     <modules>
         <module>bootablejar</module>
+        <module>layers-metadata-unit-tests</module>
     </modules>
 </project>

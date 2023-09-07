@@ -49,10 +49,12 @@
         <version.junit>4.13.2</version.junit>
         <version.com.mysql.mysql-connector-j>8.1.0</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.6.1.Final</version.org.jboss.jboss-dmr>
+        <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.1.4</version.org.mariadb>
         <version.org.wildfly>29.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>21.1.1.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>10.0.0.Final</version.org.wildfly.jar.plugin>
+        <version.org.wildfy.glow>1.0.0.Alpha1</version.org.wildfy.glow>
         <version.org.wildfly.galleon-plugins>6.4.2.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
@@ -109,6 +111,16 @@
             </dependency>
             <!-- tests -->
             <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-api</artifactId>
+                <version>${version.org.jboss.shrinkwrap}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-impl-base</artifactId>
+                <version>${version.org.jboss.shrinkwrap}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.wildfly.core</groupId>
                 <artifactId>wildfly-core-test-runner</artifactId>
                 <version>${version.org.wildfly.core}</version>
@@ -132,6 +144,18 @@
                 <groupId>javax.inject</groupId>
                 <artifactId>javax.inject</artifactId>
                 <version>${version.inject}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.glow</groupId>
+                <artifactId>wildfly-glow-core</artifactId>
+                <version>${version.org.wildfy.glow}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.glow</groupId>
+                <artifactId>wildfly-glow-maven-resolver</artifactId>
+                <version>${version.org.wildfy.glow}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
