@@ -55,7 +55,7 @@
         <version.org.wildfly.core>24.0.0.Beta3</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>11.0.0.Beta1</version.org.wildfly.jar.plugin>
         <version.org.wildfy.glow>1.0.0.Beta13</version.org.wildfy.glow>
-        <version.org.wildfly.galleon-plugins>7.0.0.Beta7</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>7.0.0.Beta8</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
     </properties>
