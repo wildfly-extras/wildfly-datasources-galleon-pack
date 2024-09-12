@@ -35,12 +35,12 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Build and Test on ${{ matrix.java }}
         run: mvn clean install
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: surefire-reports-${{ matrix.os }}-${{ matrix.java }}
           path: '**/surefire-reports/*.txt'
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: logs-${{ matrix.os }}-${{ matrix.java }}
