@@ -1,0 +1,59 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: WildFly datasources galleon feature-pack - PR and Nightly CI to test against WildFly SNAPSHOT build
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  pull_request:
+    branches:
+      - 'main'
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  WildFly-build:
+    uses: wildfly/wildfly/.github/workflows/shared-wildfly-build.yml@main
+    with:
+      wildfly-branch: main
+      wildfly-repo: "wildfly/wildfly"
+  build:
+    name: ${{ matrix.os }}-jdk${{ matrix.java }}
+    runs-on: ${{ matrix.os }}
+    needs: [WildFly-build]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        java: ['17', '21']
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: wildfly-maven-repository
+          path: .
+      - name: Extract Maven Repo
+        shell: bash
+        run: tar -xzf wildfly-maven-repository.tar.gz -C ~
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin'
+      - name: Test
+        run: |
+          version=${{ needs.WildFly-build.outputs.wildfly-version }}
+          echo "Testing with WildFly version $version"
+          mvn clean install -Dversion.org.wildfly=$version
+        shell: bash
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: surefire-reports-${{ matrix.os }}-${{ matrix.java }}
+          path: '**/surefire-reports/*.txt'
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: logs-${{ matrix.os }}-${{ matrix.java }}
+          path: '**/testsuite/**/logs/**'
