@@ -1,3 +1,7 @@
+/*
+ * Copyright The WildFly Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package org.wildfly.datasources.galleon.pack.test.layers.metadata;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -84,6 +88,15 @@ public class AbstractLayerMetaDataTestCase {
         return path;
     }
 
+    protected static Path createWebArchiveFromClass(String archiveName, Class<?> testClass) {
+        WebArchive war = ShrinkWrap.create(WebArchive.class);
+        war.addClass(testClass);
+        ZipExporter exporter = war.as(ZipExporter.class);
+        Path path = ARCHIVES_PATH.resolve(archiveName);
+        exporter.exportTo(path.toFile());
+        return path;
+    }
+ 
     protected static String createDatasourceXml(boolean xa, String driverName) {
         String datasource = xa ? "xa-datasource" : "datasource";
 

@@ -52,9 +52,10 @@
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.4.1</version.org.mariadb>
         <version.org.wildfly>34.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.core>26.0.0.Final</version.org.wildfly.core>
+        <version.org.wildfly.core>26.0.1.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>11.0.2.Final</version.org.wildfly.jar.plugin>
-        <version.org.wildfy.glow>1.1.0.Final</version.org.wildfy.glow>
+        <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
+        <version.org.wildfy.glow>1.2.0.Beta1</version.org.wildfy.glow>
         <version.org.wildfly.galleon-plugins>7.1.2.Final</version.org.wildfly.galleon-plugins>
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-datasources-galleon-pack.git</wildfly-extras.repo.scm.connection>
         <wildfly-extras.repo.scm.url>https://github.com/wildfly-extras/wildfly-datasources-galleon-pack</wildfly-extras.repo.scm.url>   
@@ -155,6 +156,12 @@
                 <groupId>org.wildfly.glow</groupId>
                 <artifactId>wildfly-glow-maven-resolver</artifactId>
                 <version>${version.org.wildfy.glow}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${version.jakarta.annotations}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
