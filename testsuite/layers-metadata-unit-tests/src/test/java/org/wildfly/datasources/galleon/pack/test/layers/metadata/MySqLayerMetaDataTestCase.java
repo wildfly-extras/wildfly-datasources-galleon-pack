@@ -1,3 +1,7 @@
+/*
+ * Copyright The WildFly Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package org.wildfly.datasources.galleon.pack.test.layers.metadata;
 
 import org.junit.BeforeClass;
@@ -37,5 +41,11 @@ public class MySqLayerMetaDataTestCase extends AbstractLayerMetaDataTestCase {
     @Test
     public void testXaJar() throws Exception {
         checkLayersForArchive(xaJar, "mysql-driver");
+    }
+
+    @Test
+    public void testDataSourceDefinition() throws Exception {
+        Path archive = createWebArchiveFromClass("test-annotation.war", MySQLDefinition.class);
+        checkLayersForArchive(archive, "mysql-driver");
     }
 }

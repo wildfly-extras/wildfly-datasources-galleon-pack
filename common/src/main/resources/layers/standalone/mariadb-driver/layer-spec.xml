@@ -3,6 +3,8 @@
     <props>
         <prop name="org.wildfly.rule.xml-path" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/datasource/driver,mariadb"/>
         <prop name="org.wildfly.rule.xml-path-xa" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/xa-datasource/driver,mariadb"/>
+        <prop name="org.wildfly.rule.annotation.field.value-url" value="jakarta.annotation.sql.DataSourceDefinition,url=jdbc:mariadb:*"/>
+        <prop name="org.wildfly.rule.annotation.field.value-className" value="jakarta.annotation.sql.DataSourceDefinition,className=org.mariadb.*"/>
     </props>
     <dependencies>
         <layer name="datasources"/>

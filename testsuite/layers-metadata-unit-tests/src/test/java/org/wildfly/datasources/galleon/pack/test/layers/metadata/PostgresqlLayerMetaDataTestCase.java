@@ -1,3 +1,7 @@
+/*
+ * Copyright The WildFly Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package org.wildfly.datasources.galleon.pack.test.layers.metadata;
 
 import org.junit.BeforeClass;
@@ -37,5 +41,11 @@ public class PostgresqlLayerMetaDataTestCase extends AbstractLayerMetaDataTestCa
     @Test
     public void testXaJar() throws Exception {
         checkLayersForArchive(xaJar, "postgresql-driver");
+    }
+    
+    @Test
+    public void testDataSourceDefinition() throws Exception {
+        Path archive = createWebArchiveFromClass("test-annotation.war", PostgresqlDefinition.class);
+        checkLayersForArchive(archive, "postgresql-driver");
     }
 }
