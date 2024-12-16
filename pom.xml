@@ -52,7 +52,7 @@
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.4.1</version.org.mariadb>
         <version.org.wildfly>35.0.0.Beta1</version.org.wildfly>
-        <version.org.wildfly.core>27.0.0.Beta5</version.org.wildfly.core>
+        <version.org.wildfly.core>27.0.0.Beta6</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>12.0.0.Beta1</version.org.wildfly.jar.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
         <version.org.wildfy.glow>1.2.0.Beta1</version.org.wildfy.glow>
