@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mariadb-datasource">
     <props>
-        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/jfdenise/wildfly-datasources-galleon-pack/layers_metadata/doc/mariadb/env.yaml"/>
+        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/wildfly-extras/wildfly-datasources-galleon-pack/main/doc/mariadb/env.yaml"/>
         <prop name="org.wildfly.rule.add-on" value="database,mariadb"/>
         <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
         <prop name="org.wildfly.rule.add-on-fix-unbound-datasources" value="JNDI env,MARIADB_JNDI=##ITEM##"/>
