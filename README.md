@@ -40,6 +40,8 @@ adds a driver resource to the datasources subsystem in the server configuration.
 
 The linked documentation provides information about how to configure each supported database type:
 
+* [DB2 driver and datasource](doc/db2/README.md)
+
 * [H2Database driver and datasource](doc/h2database/README.md)
 
 * [MariaDB driver and datasource](doc/mariadb/README.md)

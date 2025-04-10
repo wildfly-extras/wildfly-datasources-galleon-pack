@@ -40,6 +40,7 @@ public class SimpleTestCase {
     private static final String WILDFLY_WITH_ENV_TEST = "WILDFLY_WITH_ENV_TEST";
 
     private static final String MARIADB_PREFIX = "MARIADB";
+    private static final String DB2_PREFIX = "DB2";
     private static final String MYSQL_PREFIX = "MYSQL";
     private static final String ORACLE_PREFIX = "ORACLE";
     private static final String H2DATABASE_PREFIX = "H2DATABASE";
@@ -52,6 +53,7 @@ public class SimpleTestCase {
 
     @Inject
     private ManagementClient managementClient;
+    private static final String DB2_DS = "DB2DS";
     private static final String MARIADB_DS = "MariaDBDS";
     private static final String MYSQL_DS = "MySQLDS";
     private static final String ORACLE_DS = "OracleDS";
@@ -59,6 +61,7 @@ public class SimpleTestCase {
     private static final String POSTGRESQL_DS = "PostgreSQLDS";
     private static final String MSSQLSERVER_DS = "MSSQLServerDS";
     
+    private static final String DB2_DRIVER = "db2";
     private static final String MARIADB_DRIVER = "mariadb";
     private static final String MYSQL_DRIVER = "mysql";
     private static final String ORACLE_DRIVER = "oracle";
@@ -68,11 +71,11 @@ public class SimpleTestCase {
     
     private static final String PLACE_HOLDER = "XXX";
 
-    private static final String[] DATASOURCES = {H2DATABASE_DS, ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
+    private static final String[] DATASOURCES = {DB2_DS, H2DATABASE_DS, ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
     // These databases have host,port,database properties for connection-url
-    private static final String[] DATASOURCES_WITH_HPD = {POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
+    private static final String[] DATASOURCES_WITH_HPD = {DB2_DS, POSTGRESQL_DS,MSSQLSERVER_DS,MYSQL_DS,MARIADB_DS};
 
-    private static final String[] DRIVERS = {H2DATABASE_DRIVER, ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER,MYSQL_DRIVER,MARIADB_DRIVER};
+    private static final String[] DRIVERS = {DB2_DRIVER, H2DATABASE_DRIVER, ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER,MYSQL_DRIVER,MARIADB_DRIVER};
     private static final String DATASOURCES_ADDRESS = "/subsystem=datasources/";
 
     private static final Map<String, Map<String, String>> SPECIFIC_DEFAULT_VALUES = new HashMap<>();
@@ -88,6 +91,7 @@ public class SimpleTestCase {
 
     static {
 
+        DS_TO_SYSTEM_PROPERTY.put(DB2_DS, "db2");
         DS_TO_SYSTEM_PROPERTY.put(MARIADB_DS, "mariadb");
         DS_TO_SYSTEM_PROPERTY.put(MYSQL_DS, "mysql");
         DS_TO_SYSTEM_PROPERTY.put(ORACLE_DS, "oracle");
@@ -95,11 +99,13 @@ public class SimpleTestCase {
         DS_TO_SYSTEM_PROPERTY.put(POSTGRESQL_DS, "postgresql");
         DS_TO_SYSTEM_PROPERTY.put(MSSQLSERVER_DS, "mssqlserver");
 
+        CONNECTION_URL_PREFIX.put(DB2_DS, "jdbc:db2://");
         CONNECTION_URL_PREFIX.put(MARIADB_DS, "jdbc:mariadb://");
         CONNECTION_URL_PREFIX.put(MYSQL_DS, "jdbc:mysql://");
         CONNECTION_URL_PREFIX.put(POSTGRESQL_DS, "jdbc:postgresql://");
         CONNECTION_URL_PREFIX.put(MSSQLSERVER_DS, "jdbc:sqlserver://");
         
+        CONNECTION_URL_DB.put(DB2_DS, "/");
         CONNECTION_URL_DB.put(MARIADB_DS, "/");
         CONNECTION_URL_DB.put(MYSQL_DS, "/");
         CONNECTION_URL_DB.put(POSTGRESQL_DS, "/");
@@ -178,6 +184,16 @@ public class SimpleTestCase {
         mariadb.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter");
         mariadb.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker");
 
+        Map<String, String> db2 = new HashMap<>();
+        SPECIFIC_DEFAULT_VALUES.put(DB2_DS, db2);
+        db2.put("connection-url", "jdbc:db2://localhost:50000/${org.wildfly.datasources.db2.database,env.DB2_DATABASE,env.OPENSHIFT_DB2_DB_NAME}");
+        db2.put("jndi-name", "java:jboss/datasources/DB2DS");
+        db2.put("password", "${org.wildfly.datasources.db2.password,env.DB2_PASSWORD,env.OPENSHIFT_DB2_DB_PASSWORD}");
+        db2.put("user-name", "${org.wildfly.datasources.db2.user-name,env.DB2_USER,env.OPENSHIFT_DB2_DB_USERNAME}");
+        db2.put("driver-name", DB2_DRIVER);
+        db2.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter");
+        db2.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker");
+
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".enabled", "false");
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".exception-sorter-class-name", "foo");
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".idle-timeout-minutes", "60");
@@ -198,6 +214,7 @@ public class SimpleTestCase {
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".transaction-isolation", "TRANSACTION_SERIALIZABLE");
         SYSTEM_PROPERTIES_VALUES.put("org.wildfly.datasources." + PLACE_HOLDER + ".flush-strategy", "IdleConnections");
 
+        ENV_VARIABLES_PREFIXES.put(DB2_PREFIX, DB2_DS);
         ENV_VARIABLES_PREFIXES.put(ORACLE_PREFIX, ORACLE_DS);
         ENV_VARIABLES_PREFIXES.put(H2DATABASE_PREFIX, H2DATABASE_DS);
         ENV_VARIABLES_PREFIXES.put(POSTGRESQL_PREFIX, POSTGRESQL_DS);
@@ -205,6 +222,7 @@ public class SimpleTestCase {
         ENV_VARIABLES_PREFIXES.put(MYSQL_PREFIX, MYSQL_DS);
         ENV_VARIABLES_PREFIXES.put(MARIADB_PREFIX, MARIADB_DS);
 
+        DS_TO_PREFIX.put(DB2_DS, DB2_PREFIX);
         DS_TO_PREFIX.put(ORACLE_DS, ORACLE_PREFIX);
         DS_TO_PREFIX.put(H2DATABASE_DS, H2DATABASE_PREFIX);
         DS_TO_PREFIX.put(POSTGRESQL_DS, POSTGRESQL_PREFIX);

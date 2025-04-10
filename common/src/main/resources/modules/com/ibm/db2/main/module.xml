@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="com.ibm.db2" xmlns="urn:jboss:module:1.8">
+    <resources>
+        <artifact name="${com.ibm.db2:jcc}"/>
+    </resources>
+    <dependencies>
+        <module name="wildflyee.api"/>
+    </dependencies>
+</module>
+

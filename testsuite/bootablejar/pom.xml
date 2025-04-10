@@ -83,6 +83,7 @@
                         <layer>mysql-datasource</layer>
                         <layer>oracle-datasource</layer>
                         <layer>postgresql-datasource</layer>
+                        <layer>db2-datasource</layer>
                     </layers>
                     <hollow-jar>true</hollow-jar>
                     <plugin-options>
@@ -284,7 +285,25 @@
                                 <MARIADB_STALE_CONNECTION_CHECKER>envfoostalechecker</MARIADB_STALE_CONNECTION_CHECKER>
                                 <MARIADB_CONNECTION_CHECKER>envfoochecker</MARIADB_CONNECTION_CHECKER>
                                 <MARIADB_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MARIADB_TX_ISOLATION>
-                                <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY> 
+                                <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY>
+                                
+                                <DB2_ENABLED>false</DB2_ENABLED>
+                                <DB2_EXCEPTION_SORTER>envfoo</DB2_EXCEPTION_SORTER>
+                                <DB2_IDLE_TIMEOUT_MINUTES>40</DB2_IDLE_TIMEOUT_MINUTES>
+                                <DB2_JNDI>envbar</DB2_JNDI>
+                                <DB2_JTA>false</DB2_JTA>
+                                <DB2_MAX_POOL_SIZE>8888</DB2_MAX_POOL_SIZE>
+                                <DB2_MIN_POOL_SIZE>77</DB2_MIN_POOL_SIZE>
+                                <DB2_URL>envfoourl</DB2_URL>
+                                <DB2_USER>envfoouser</DB2_USER>
+                                <DB2_PASSWORD>envfoopassword</DB2_PASSWORD>
+                                <DB2_VALIDATE_ON_MATCH>false</DB2_VALIDATE_ON_MATCH>
+                                <DB2_BACKGROUND_VALIDATION>true</DB2_BACKGROUND_VALIDATION>
+                                <DB2_BACKGROUND_VALIDATION_MILLIS>7</DB2_BACKGROUND_VALIDATION_MILLIS>
+                                <DB2_STALE_CONNECTION_CHECKER>envfoostalechecker</DB2_STALE_CONNECTION_CHECKER>
+                                <DB2_CONNECTION_CHECKER>envfoochecker</DB2_CONNECTION_CHECKER>
+                                <DB2_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</DB2_TX_ISOLATION>
+                                <DB2_FLUSH_STRATEGY>IdleConnections</DB2_FLUSH_STRATEGY>
                             </environmentVariables>
                         </configuration>
                     </execution>
@@ -325,6 +344,11 @@
                                 <MARIADB_PORT>envfooport</MARIADB_PORT>
                                 <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
                                 <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                
+                                <DB2_HOST>envfoohost</DB2_HOST>
+                                <DB2_PORT>envfooport</DB2_PORT>
+                                <DB2_DATABASE>envbardatabase</DB2_DATABASE>
+                                <DB2_DATASOURCE>envbardatasource</DB2_DATASOURCE>
                             </environmentVariables>
                         </configuration>
                     </execution>
@@ -366,6 +390,11 @@
                                 <MARIADB_SERVICE_PORT>envfooport</MARIADB_SERVICE_PORT>
                                 <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
                                 <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                
+                                <DB2_SERVICE_HOST>envfoohost</DB2_SERVICE_HOST>
+                                <DB2_SERVICE_PORT>envfooport</DB2_SERVICE_PORT>
+                                <DB2_DATABASE>envbardatabase</DB2_DATABASE>
+                                <DB2_DATASOURCE>envbardatasource</DB2_DATASOURCE>
                             </environmentVariables>
                         </configuration>
                     </execution>
@@ -504,7 +533,25 @@
                                 <MARIADB_STALE_CONNECTION_CHECKER>envfoostalechecker</MARIADB_STALE_CONNECTION_CHECKER>
                                 <MARIADB_CONNECTION_CHECKER>envfoochecker</MARIADB_CONNECTION_CHECKER>
                                 <MARIADB_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MARIADB_TX_ISOLATION>
-                                <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY> 
+                                <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY>
+                                
+                                <DB2_ENABLED>false</DB2_ENABLED>
+                                <DB2_EXCEPTION_SORTER>envfoo</DB2_EXCEPTION_SORTER>
+                                <DB2_IDLE_TIMEOUT_MINUTES>40</DB2_IDLE_TIMEOUT_MINUTES>
+                                <DB2_JNDI>envbar</DB2_JNDI>
+                                <DB2_JTA>false</DB2_JTA>
+                                <DB2_MAX_POOL_SIZE>8888</DB2_MAX_POOL_SIZE>
+                                <DB2_MIN_POOL_SIZE>77</DB2_MIN_POOL_SIZE>
+                                <DB2_URL>envfoourl</DB2_URL>
+                                <DB2_USER>envfoouser</DB2_USER>
+                                <DB2_PASSWORD>envfoopassword</DB2_PASSWORD>
+                                <DB2_VALIDATE_ON_MATCH>false</DB2_VALIDATE_ON_MATCH>
+                                <DB2_BACKGROUND_VALIDATION>true</DB2_BACKGROUND_VALIDATION>
+                                <DB2_BACKGROUND_VALIDATION_MILLIS>7</DB2_BACKGROUND_VALIDATION_MILLIS>
+                                <DB2_STALE_CONNECTION_CHECKER>envfoostalechecker</DB2_STALE_CONNECTION_CHECKER>
+                                <DB2_CONNECTION_CHECKER>envfoochecker</DB2_CONNECTION_CHECKER>
+                                <DB2_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</DB2_TX_ISOLATION>
+                                <DB2_FLUSH_STRATEGY>IdleConnections</DB2_FLUSH_STRATEGY>
                             </environmentVariables>
                         </configuration>
                     </execution>
@@ -546,6 +593,11 @@
                                 <MARIADB_PORT>envfooport</MARIADB_PORT>
                                 <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
                                 <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                
+                                <DB2_HOST>envfoohost</DB2_HOST>
+                                <DB2_PORT>envfooport</DB2_PORT>
+                                <DB2_DATABASE>envbardatabase</DB2_DATABASE>
+                                <DB2_DATASOURCE>envbardatasource</DB2_DATASOURCE>
                             </environmentVariables>
                         </configuration>
                     </execution>
@@ -587,6 +639,11 @@
                                 <MARIADB_SERVICE_PORT>envfooport</MARIADB_SERVICE_PORT>
                                 <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
                                 <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                
+                                <DB2_SERVICE_HOST>envfoohost</DB2_SERVICE_HOST>
+                                <DB2_SERVICE_PORT>envfooport</DB2_SERVICE_PORT>
+                                <DB2_DATABASE>envbardatabase</DB2_DATABASE>
+                                <DB2_DATASOURCE>envbardatasource</DB2_DATASOURCE>
                             </environmentVariables>
                         </configuration>
                     </execution>

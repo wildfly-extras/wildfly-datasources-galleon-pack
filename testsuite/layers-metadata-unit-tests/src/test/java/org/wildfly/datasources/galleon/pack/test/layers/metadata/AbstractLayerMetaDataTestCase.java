@@ -40,7 +40,8 @@ public class AbstractLayerMetaDataTestCase {
             "mssqlserver-driver",
             "mysql-driver",
             "oracle-driver",
-            "postgresql-driver"
+            "postgresql-driver",
+            "db2-driver"
     });
 
     @BeforeClass
