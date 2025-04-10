@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="db2-default-datasource">
+    <props>
+        <prop name="org.wildfly.rule.add-on" value="database,db2:default"/>
+        <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
+        <prop name="org.wildfly.rule.add-on-fix-no-default-datasource" value=""/>
+        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/wildfly-extras/wildfly-datasources-galleon-pack/main/doc/db2/env.yaml"/>
+        <prop name="org.wildfly.rule.add-on-depends-on" value="only:datasources"/>
+    </props>
+    <dependencies>
+        <layer name="datasources"/>
+        <layer name="db2-datasource"/>
+    </dependencies>
+    
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="${org.wildfly.datasources.db2.jndi-name,env.DB2_JNDI:java:jboss/datasources/${org.wildfly.datasources.db2.datasource, env.DB2_DATASOURCE,env.OPENSHIFT_DB2_DATASOURCE:DB2DS}}"/>
+    </feature>
+</layer-spec>
+
